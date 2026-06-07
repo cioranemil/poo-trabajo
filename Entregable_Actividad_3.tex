@@ -127,34 +127,32 @@ Para esta primera parte armamos una ventana que pide cinco notas. Después de in
 Aquí puse unas capturas de cómo funciona el programa paso a paso:
 
 \begin{enumerate}
-    \item \textbf{Inicio y Cálculo Correcto:} Primero se abre la ventana vacía esperando las 5 notas. Luego de darle a calcular con buenos datos, muestra los resultados abajo.
+    \item \textbf{Inicio:} Primero se abre la ventana vacía esperando las 5 notas.
     \begin{figure}[htbp]
         \centering
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{imagenes/1}
-            \caption{Ventana inicial esperando datos.}
-        \end{minipage}\hfill
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{imagenes/2}
-            \caption{Resultados mostrados.}
-        \end{minipage}
+        \includegraphics[width=0.6\textwidth]{imagenes/1}
+        \caption{Ventana inicial esperando datos.}
     \end{figure}
 
-    \item \textbf{Avisos y Errores:} Si falta rellenar algo, sale un aviso. Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con un cuadro rojo.
+    \item \textbf{Cálculo correcto:} Luego de darle a calcular con buenos datos, muestra los resultados abajo.
     \begin{figure}[htbp]
         \centering
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{imagenes/3}
-            \caption{Aviso por campos vacíos.}
-        \end{minipage}\hfill
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{imagenes/4}
-            \caption{Error de formato numérico.}
-        \end{minipage}
+        \includegraphics[width=0.6\textwidth]{imagenes/2}
+        \caption{Resultados mostrados.}
+    \end{figure}
+
+    \item \textbf{Aviso por datos faltantes:} Si falta rellenar algo, sale este aviso para que el usuario complete todo.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{imagenes/3}
+        \caption{Aviso por campos vacíos.}
+    \end{figure}
+
+    \item \textbf{Aviso por texto inválido:} Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con un cuadro rojo.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{imagenes/4}
+        \caption{Error de formato numérico.}
     \end{figure}
 \end{enumerate}
 
@@ -163,7 +161,7 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 
 \begin{figure}[htbp] 
 \begin{center}
-\resizebox{0.85\textwidth}{!}{%
+\resizebox{0.95\textwidth}{!}{%
 \begin{tikzpicture}[
   font=\sffamily,
   inheritance/.style={draw=inheritColor, line width=1pt, -{Triangle[open, length=8pt, width=10pt]}},
@@ -196,7 +194,7 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 -inicio()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{Notas}{(0,-15.5)}{4.8cm}{headerGreen}{Notas}{%
+\umlclass{Notas}{(7.5,-6.5)}{4.8cm}{headerGreen}{Notas}{%
 \textasciitilde{}listaNotas: double[]}{%
 +Notas()\\
 \textasciitilde{}calcularPromedio(): double\\
@@ -211,8 +209,8 @@ Se complementó la información del diagrama para reflejar detalladamente la est
     rounded corners=8pt,
     very thick,
     fill=headerBlue!5,
-    inner xsep=25pt,
-    inner ysep=25pt,
+    inner xsep=15pt,
+    inner ysep=15pt,
     fit=(Principal) (VentanaPrincipal) (Notas)
   ] (namespace) {};
   \node[
@@ -227,10 +225,10 @@ Se complementó la información del diagrama para reflejar detalladamente la est
   node[multiplicity, near start, left] {1}
   node[multiplicity, near end, left] {1};
 
-\draw[association] (VentanaPrincipal.south) -- (Notas.north)
-  node[label, midway, right] {Instancia para cálculos}
-  node[multiplicity, near start, left] {1}
-  node[multiplicity, near end, left] {1};
+\draw[association] (VentanaPrincipal.east) -- (Notas.west)
+  node[label, midway, above] {Instancia}
+  node[multiplicity, near start, above] {1}
+  node[multiplicity, near end, above] {1};
 
 \end{tikzpicture}
 }
@@ -255,7 +253,7 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
     \item \textbf{Menú principal de figuras:} Al principio sale este menú para escoger qué figura quieres calcular.
     \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.45\textwidth]{imagenes/5}
+        \includegraphics[width=0.6\textwidth]{imagenes/5}
         \caption{Ventana inicial de selección.}
     \end{figure}
 
@@ -282,7 +280,7 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
     \item \textbf{Prevención de errores:} Igual que en el ejercicio anterior, controlamos que si pones letras en vez de números, el programa te avise.
     \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.45\textwidth]{imagenes/9}
+        \includegraphics[width=0.6\textwidth]{imagenes/9}
         \caption{Aviso de error en el formato.}
     \end{figure}
 \end{enumerate}
@@ -301,16 +299,16 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
   multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt, text=assocColor}
 ]
 
-\umlclass{Principal}{(0,1.5)}{3.0cm}{headerBlue}{Principal}{\strut}{+main(String[] args)\$}
+\umlclass{Principal}{(0,0)}{3.0cm}{headerBlue}{Principal}{\strut}{+main(String[] args)\$}
 
-\umlclass{VentanaPrincipal}{(0,-2.5)}{4.7cm}{headerBlue}{VentanaPrincipal}{%
+\umlclass{VentanaPrincipal}{(0,-4.0)}{4.7cm}{headerBlue}{VentanaPrincipal}{%
 -btnCilindro: JButton\\
 -btnEsfera: JButton\\
 -btnPiramide: JButton}{%
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-7.5,-9.0)}{4.8cm}{headerBlue}{VentanaCilindro}{%
+\umlclass{VentanaCilindro}{(-6.0,-10.5)}{4.8cm}{headerBlue}{VentanaCilindro}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -altura: JLabel\\
@@ -323,11 +321,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaCilindro()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelCil}{(-7.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCil}{(-6.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaEsfera}{(0.0,-9.0)}{4.5cm}{headerBlue}{VentanaEsfera}{%
+\umlclass{VentanaEsfera}{(0.0,-10.5)}{4.5cm}{headerBlue}{VentanaEsfera}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -volumen: JLabel\\
@@ -338,11 +336,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaEsfera()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelEsf}{(0.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelEsf}{(0.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaPiramide}{(7.5,-9.0)}{4.8cm}{headerBlue}{VentanaPiramide}{%
+\umlclass{VentanaPiramide}{(6.0,-10.5)}{4.8cm}{headerBlue}{VentanaPiramide}{%
 -contenedor: Container\\
 -base: JLabel\\
 -altura: JLabel\\
@@ -357,11 +355,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPiramide()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelPir}{(7.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPir}{(6.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{Cilindro}{(-7.5,-21.5)}{4.0cm}{headerGreen}{Cilindro}{%
+\umlclass{Cilindro}{(-6.0,-21.5)}{4.0cm}{headerGreen}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
 +Cilindro(double r, double a)\\
@@ -374,7 +372,7 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Piramide}{(7.5,-21.5)}{4.5cm}{headerGreen}{Piramide}{%
+\umlclass{Piramide}{(6.0,-21.5)}{4.5cm}{headerGreen}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
@@ -382,7 +380,7 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{FiguraGeometrica}{(0.0,-27.5)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
+\umlclass{FiguraGeometrica}{(0.0,-27.0)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\
@@ -417,9 +415,9 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \draw[association] (PanelEsf.south) -- (Esfera.north);
 \draw[association] (PanelPir.south) -- (Piramide.north);
 
-\draw[inheritance] (Cilindro.south) -- ++(0,-1.5) -| (FiguraGeometrica.north);
+\draw[inheritance] (Cilindro.south) -- ++(0,-1.2) -| (FiguraGeometrica.north);
 \draw[inheritance] (Esfera.south) -- (FiguraGeometrica.north);
-\draw[inheritance] (Piramide.south) -- ++(0,-1.5) -| (FiguraGeometrica.north);
+\draw[inheritance] (Piramide.south) -- ++(0,-1.2) -| (FiguraGeometrica.north);
 
 \end{tikzpicture}%
 }
@@ -431,7 +429,7 @@ Para que todo sea más fácil de revisar y no tener los archivos sueltos, creamo
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{imagenes/10}
+    \includegraphics[width=0.6\textwidth]{imagenes/10}
     \caption{El menú que unifica toda la actividad 3.}
 \end{figure}
 
