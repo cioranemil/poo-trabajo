@@ -1,0 +1,18 @@
+# Archivos compilados de Java
+*.class
+
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.fls
+*.fdb_latexmk
+*.toc
+*.lof
+*.lot
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
