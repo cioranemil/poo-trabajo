@@ -76,14 +76,14 @@ public class VentanaPrisma extends JFrame implements ActionListener {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-            GradientPaint gradFrontal = new GradientPaint(30, 40, new Color(0, 200, 150), 130, 130, new Color(0, 100, 80));
-            GradientPaint gradSuperior = new GradientPaint(50, 20, new Color(50, 255, 180), 130, 40, new Color(0, 150, 120));
-            GradientPaint gradDerecha = new GradientPaint(130, 40, new Color(0, 150, 100), 150, 130, new Color(0, 80, 50));
+            GradientPaint gradFrontal = new GradientPaint(10, 60, new Color(0, 200, 150), 160, 130, new Color(0, 100, 80));
+            GradientPaint gradSuperior = new GradientPaint(30, 30, new Color(50, 255, 180), 180, 60, new Color(0, 150, 120));
+            GradientPaint gradDerecha = new GradientPaint(160, 60, new Color(0, 150, 100), 180, 130, new Color(0, 80, 50));
 
-            // Caras rellenas para el prisma
-            Polygon caraSuperior = new Polygon(new int[]{50, 150, 130, 30}, new int[]{20, 20, 40, 40}, 4);
-            Polygon caraFrontal = new Polygon(new int[]{30, 130, 130, 30}, new int[]{40, 40, 130, 130}, 4);
-            Polygon caraDerecha = new Polygon(new int[]{130, 150, 150, 130}, new int[]{40, 20, 110, 130}, 4);
+            // Caras rellenas para el prisma (Más alargado)
+            Polygon caraSuperior = new Polygon(new int[]{30, 180, 160, 10}, new int[]{30, 30, 60, 60}, 4);
+            Polygon caraFrontal = new Polygon(new int[]{10, 160, 160, 10}, new int[]{60, 60, 130, 130}, 4);
+            Polygon caraDerecha = new Polygon(new int[]{160, 180, 180, 160}, new int[]{60, 30, 100, 130}, 4);
             
             g2.setPaint(gradFrontal);
             g2.fillPolygon(caraFrontal);
