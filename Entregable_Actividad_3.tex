@@ -1,0 +1,400 @@
+% Homework Assignment Article
+% LaTeX Template
+\documentclass[a4paper]{article} 
+
+%----------------------------------------------------------------------------------------
+%	FORMATTING
+%----------------------------------------------------------------------------------------
+\addtolength{\hoffset}{-2.25cm}
+\addtolength{\textwidth}{4.5cm}
+\addtolength{\voffset}{-3.25cm}
+\addtolength{\textheight}{5cm}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0in}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english, spanish]{babel} 
+\usepackage{charter} 
+\usepackage{microtype} 
+\usepackage{amsthm, amsmath, amssymb} 
+\usepackage{float} 
+\usepackage[final, colorlinks = true, linkcolor = black, citecolor = black]{hyperref} 
+\usepackage{graphicx, multicol} 
+\usepackage{xcolor} 
+\usepackage{colortbl} 
+\usepackage{array} 
+\usepackage{marvosym, wasysym} 
+\usepackage{listings} 
+\usepackage{booktabs} 
+
+% Configuración de listings
+\lstset{
+    language=Java,         
+    basicstyle=\ttfamily\small,    
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    numbers=left,            
+    frame=lines             
+}
+
+% Configuración TikZ
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc} 
+
+\usepackage[yyyymmdd]{datetime} 
+\renewcommand{\dateseparator}{-} 
+
+\usepackage{fancyhdr} 
+\pagestyle{fancy} 
+\fancyhead{}\renewcommand{\headrulewidth}{0pt} 
+\fancyfoot[L]{} 
+\fancyfoot[C]{} 
+\fancyfoot[R]{\thepage} 
+
+%----------------------------------------------------------------------------------------
+%	UML DIAGRAM CONFIGURATION (NUEVO DISEÑO)
+%----------------------------------------------------------------------------------------
+% --- Color palette ---
+\definecolor{umlHeader}{RGB}{240,240,240} % Gris claro
+\definecolor{umlHeader2}{RGB}{255,245,230} % Naranja muy pálido
+\definecolor{umlBorder}{RGB}{80,80,80} % Gris oscuro
+\definecolor{namespaceFill}{RGB}{250,250,250} % Casi blanco
+\definecolor{assocColor}{RGB}{100,100,100} 
+\definecolor{inheritColor}{RGB}{50,50,50}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% UML class macro
+\newcommand{\umlclass}[7]{%
+  \node[inner sep=0pt, outer sep=0pt] (#1) at #2 {%
+    \scriptsize
+    \renewcommand{\arraystretch}{1.15}%
+    \setlength{\tabcolsep}{5pt}%
+    \begin{tabular}{|L{#3}|}
+      \hline
+      \rowcolor{#4}\multicolumn{1}{|c|}{\bfseries #5}\\
+      \hline
+      #6\\
+      \hline
+      #7\\
+      \hline
+    \end{tabular}%
+  };%
+}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{Documentación Técnica: Actividad 3} 
+\fancyhead[C]{}
+\hrule \medskip 
+\begin{minipage}{0.295\textwidth} 
+\raggedright
+UNAL\\ 
+\footnotesize 
+\hfill\\
+Cristian
+\end{minipage}
+\begin{minipage}{0.4\textwidth} 
+\centering 
+\large 
+Actividad 3\\ 
+\normalsize 
+Programación Orientada a Objetos (3007744)\\ 
+\end{minipage}
+\begin{minipage}{0.295\textwidth} 
+\raggedleft
+\today\\ 
+\footnotesize 
+\hfill\\
+cristian@unal.edu.co 
+\end{minipage}
+\medskip\hrule 
+\bigskip
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Parte 1: Sistema de Evaluación Estudiantil}
+Se requiere diseñar un aplicativo gráfico capaz de gestionar las calificaciones de un alumno. La ventana principal debe solicitar exactamente cinco notas y, a partir de ellas, calcular métricas estadísticas básicas (promedio, desviación estándar, valor máximo y mínimo) que se mostrarán en la misma interfaz.
+
+\textbf{Validaciones adicionales implementadas:}
+\begin{itemize}
+ \item Prevención de ingresos alfanuméricos mediante el manejo de excepciones numéricas.
+ \item Obligatoriedad de los 5 campos: no se calcularán métricas si hay campos en blanco.
+\end{itemize}
+
+\bigskip
+
+\subsection{Componentes Gráficos}
+A continuación, se documenta la interfaz de usuario para el cálculo de notas:
+
+\begin{enumerate}
+    \item \textbf{Estado Inicial:} Interfaz dispuesta para recibir las cinco notas del alumno en formato decimal.
+    \begin{figure}[H]
+        \centering
+        \caption{Vista inicial sin datos ingresados.}
+    \end{figure}
+
+    \item \textbf{Procesamiento Exitoso:} Resultados estadísticos generados y mostrados tras una validación correcta.
+    \begin{figure}[H]
+        \centering
+        \caption{Cálculo de estadísticas con datos correctos.}
+    \end{figure}
+
+    \item \textbf{Excepción por Campos Vacíos:} Advertencia modal que frena la operación si faltan calificaciones.
+    \begin{figure}[H]
+        \centering
+        \caption{Diálogo modal advirtiendo la falta de información.}
+    \end{figure}
+
+    \item \textbf{Excepción por Formato Inválido:} Advertencia cuando el usuario digita texto o caracteres que no corresponden a un número decimal válido.
+    \begin{figure}[H]
+        \centering
+        \caption{Diálogo modal de error de conversión de formato (\textit{NumberFormatException}).}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Diagrama Estructural (UML)}
+
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  inheritance/.style={draw=inheritColor, line width=0.8pt, -{Triangle[open, length=6pt, width=8pt]}},
+  association/.style={draw=assocColor, line width=0.65pt, -{Latex[length=4pt, width=5pt]}},
+  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=1.5pt},
+  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
+]
+
+% Clases Modificadas en Posición y Color
+\umlclass{Principal}{(0,0)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
+
+\umlclass{VentanaPrincipal}{(0,-4.5)}{5.0cm}{umlHeader}{VentanaPrincipal}{%
+-contenedor: Container\\
+-etiquetas(1-5): JLabel\\
+-resultados: JLabel[]\\
+-campos(1-5): JTextField\\
+-btnCalcular: JButton\\
+-btnLimpiar: JButton}{%
++VentanaPrincipal()\\
+-inicializarVista()\\
++actionPerformed(ActionEvent e)}
+
+\umlclass{Notas}{(0,-9.5)}{4.5cm}{umlHeader2}{Notas}{%
+\textasciitilde{}listaNotas: double[]}{%
++Notas()\\
+\textasciitilde{}calcularPromedio(): double\\
+\textasciitilde{}calcularDesviacion(): double\\
+\textasciitilde{}calcularMenor(): double\\
+\textasciitilde{}calcularMayor(): double}
+
+% Boundaries
+\begin{scope}[on background layer]
+  \node[
+    draw=umlBorder,
+    rounded corners=5pt,
+    thick,
+    fill=namespaceFill,
+    inner xsep=18pt,
+    inner ysep=20pt,
+    fit=(Principal) (VentanaPrincipal) (Notas)
+  ] (namespace) {};
+  \node[
+    anchor=south west,
+    text=umlBorder,
+    font=\bfseries\sffamily\small
+  ] at (namespace.north west) {Paquete: Notas};
+\end{scope}
+
+% Relaciones (Verticales en lugar de horizontales)
+\draw[association] (Principal.south) -- (VentanaPrincipal.north)
+  node[label, midway, right] {Inicia}
+  node[multiplicity, near start, left] {1}
+  node[multiplicity, near end, left] {1};
+
+\draw[association] (VentanaPrincipal.south) -- (Notas.north)
+  node[label, midway, right] {Delega cálculos a}
+  node[multiplicity, near start, left] {1}
+  node[multiplicity, near end, left] {1};
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Interacciones del Usuario}
+\begin{itemize}
+    \item \textbf{Cálculo Exitoso:} El usuario introduce las 5 notas obligatorias (ej. 4.5, 3.2...) y oprime el botón \textit{Calcular}. El backend procesa el array y devuelve el promedio, la nota mayor, la menor y la desviación, mostrándose en pantalla de forma instantánea.
+    \item \textbf{Reinicio de Interfaz:} El botón \textit{Limpiar} vacía las cajas de texto y restaura los valores predeterminados para una nueva consulta.
+    \item \textbf{Blindaje de Datos:} El bloque \textit{try-catch} envolvente garantiza que el programa no colapse (\textit{Crash}) si el usuario se equivoca al escribir (ej. escribiendo letras), desplegando en su lugar una alerta amigable.
+\end{itemize}
+
+\subsection{Repositorio}
+Acceso al código fuente: \url{https://github.com/cioranemil/poo-trabajo}
+\bigskip
+
+%------------------------------------------------
+
+
+\section{Parte 2: Calculadora de Sólidos Geométricos}
+La segunda fase consiste en modelar y calcular atributos espaciales (volumen y superficie) de tres sólidos tridimensionales fundamentales: el Cilindro, la Esfera y la Pirámide.
+
+Se ha diseñado una arquitectura basada en herencia orientada a objetos (POO) donde cada sólido es una clase concreta derivada de una superclase geométrica común.
+
+\bigskip
+
+\subsection{Componentes Gráficos}
+La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
+
+\begin{enumerate}
+    \item \textbf{Menú de Selección:} Panel centralizado con opciones dedicadas a cada sólido.
+    \begin{figure}[H]
+        \centering
+        \caption{Ventana enrutadora principal para los tres sólidos.}
+    \end{figure}
+
+    \item \textbf{Formularios de Cálculo:} 
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.31\textwidth}
+            \centering
+            \caption{Vista del Cilindro (Radio y Altura).}
+        \end{minipage}\hfill
+        \begin{minipage}{0.31\textwidth}
+            \centering
+            \caption{Vista de la Esfera (Único parámetro: Radio).}
+        \end{minipage}\hfill
+        \begin{minipage}{0.31\textwidth}
+            \centering
+            \caption{Vista de la Pirámide (Base, Altura y Apotema).}
+        \end{minipage}
+    \end{figure}
+
+    \item \textbf{Manejo de Errores:} Protección estricta contra entradas inválidas mediante validación de tipos decimales.
+    \begin{figure}[H]
+        \centering
+        \caption{Alerta modal de ingreso de datos incorrecto.}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Diagrama Estructural (UML)}
+
+\begin{center}
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\sffamily,
+  inheritance/.style={draw=inheritColor, line width=0.8pt, -{Triangle[open, length=6pt, width=8pt]}},
+  association/.style={draw=assocColor, line width=0.65pt, -{Latex[length=4pt, width=5pt]}},
+  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=1.5pt},
+  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
+]
+
+% CONTROLADOR INICIAL 
+\umlclass{Principal}{(0,1.5)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
+
+\umlclass{VentanaPrincipal}{(0,-2.5)}{4.7cm}{umlHeader}{VentanaPrincipal}{%
+-btnCilindro: JButton\\
+-btnEsfera: JButton\\
+-btnPiramide: JButton}{%
++VentanaPrincipal()\\
+-inicializarComponentes()\\
++actionPerformed(ActionEvent e)}
+
+% VENTANAS DE INTERFAZ DE USUARIO 
+\umlclass{VentanaCilindro}{(-7.0,-7.5)}{4.8cm}{umlHeader}{VentanaCilindro}{%
+-campoRadio: JTextField\\
+-campoAltura: JTextField\\
+-btnCalcular: JButton}{%
++VentanaCilindro()\\
++actionPerformed(ActionEvent e)}
+
+\umlclass{VentanaEsfera}{(0.0,-7.5)}{4.5cm}{umlHeader}{VentanaEsfera}{%
+-campoRadio: JTextField\\
+-btnCalcular: JButton}{%
++VentanaEsfera()\\
++actionPerformed(ActionEvent e)}
+
+\umlclass{VentanaPiramide}{(7.0,-7.5)}{4.8cm}{umlHeader}{VentanaPiramide}{%
+-campoBase: JTextField\\
+-campoAltura: JTextField\\
+-campoApotema: JTextField\\
+-btnCalcular: JButton}{%
++VentanaPiramide()\\
++actionPerformed(ActionEvent e)}
+
+
+% SUPERCLASE (Moviendo superclase arriba para simplificar)
+\umlclass{FiguraGeometrica}{(0.0,-13.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
+-volumen: double\\
+-superficie: double}{%
++setVolumen(double)\\
++setSuperficie(double)\\
++getVolumen(): double\\
++getSuperficie(): double}
+
+% MODELOS CONCRETOS
+\umlclass{Cilindro}{(-7.0,-18.0)}{4.0cm}{umlHeader2}{Cilindro}{%
+-radio: double\\
+-altura: double}{%
++Cilindro(double, double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
+
+\umlclass{Esfera}{(0.0,-18.0)}{3.8cm}{umlHeader2}{Esfera}{%
+-radio: double}{%
++Esfera(double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
+
+\umlclass{Piramide}{(7.0,-18.0)}{4.5cm}{umlHeader2}{Piramide}{%
+-base: double\\
+-altura: double\\
+-apotema: double}{%
++Piramide(double, double, double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
+
+% RELACIONES 
+\draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Crea};
+
+\draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north) node[label, pos=0.4, right] {Instancia};
+\draw[association] (VentanaPrincipal.south) -| (VentanaCilindro.north);
+\draw[association] (VentanaPrincipal.south) -| (VentanaPiramide.north);
+
+\draw[association] (VentanaCilindro.south) -- (Cilindro.north);
+\draw[association] (VentanaEsfera.south) -- (Esfera.north);
+\draw[association] (VentanaPiramide.south) -- (Piramide.north);
+
+\draw[inheritance] (Cilindro.east) -- ++(1.5,0) |- (FiguraGeometrica.west);
+\draw[inheritance] (Esfera.north) -- (FiguraGeometrica.south);
+\draw[inheritance] (Piramide.west) -- ++(-1.5,0) |- (FiguraGeometrica.east);
+
+\end{tikzpicture}%
+}
+\end{center}
+
+\subsection{Interacciones del Usuario}
+\begin{itemize}
+    \item \textbf{Elección del Sólido:} El usuario tiene a su disposición un menú principal interactivo. Al hacer clic en un botón, se oculta el menú temporalmente y se abre el formulario de cálculo matemático de la figura escogida.
+    \item \textbf{Cálculo Especializado:} Cada figura solicita sus propios parámetros:
+        \begin{itemize}
+            \item \textbf{Esfera:} Requiere exclusivamente el valor del Radio.
+            \item \textbf{Cilindro:} Precisa del Radio basal y su Altura.
+            \item \textbf{Pirámide:} Pide longitud de la Base, Altura y Apotema.
+        \end{itemize}
+    \item \textbf{Actualización de Objetos:} Tras ingresar la información y ejecutar la acción "Calcular", la GUI llama al constructor de la clase correspondiente (Ej. \textit{new Cilindro(r, h)}), invoca sus funciones de volumen y superficie, y extrae los resultados actualizando los marcadores visuales.
+\end{itemize}
+
+\subsection{Repositorio}
+Acceso al código fuente: \url{https://github.com/cioranemil/poo-trabajo-3-}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
