@@ -375,76 +375,122 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-9.0,-10.5)}{4.0cm}{headerBlue}{VentanaCilindro}{%
+\umlclass{VentanaCilindro}{(-10.4,-11.5)}{4.8cm}{headerBlue}{VentanaCilindro}{%
+-contenedor: Container\\
 -radio: JLabel\\
 -altura: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
+-campoRadio: JTextField\\
+-campoAltura: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaCilindro()}
++VentanaCilindro()\\
++actionPerformed(ActionEvent e)}
 
-\umlclass{PanelCil}{(-9.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCil}{(-10.4,-18.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner};
 
-\umlclass{VentanaEsfera}{(-4.5,-10.5)}{4.0cm}{headerBlue}{VentanaEsfera}{%
+\umlclass{VentanaEsfera}{(-5.2,-11.5)}{4.5cm}{headerBlue}{VentanaEsfera}{%
+-contenedor: Container\\
 -radio: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
+-campoRadio: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaEsfera()}
++VentanaEsfera()\\
++actionPerformed(ActionEvent e)}
 
-\umlclass{PanelEsf}{(-4.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelEsf}{(-5.2,-18.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner};
 
-\umlclass{VentanaPiramide}{(0.0,-10.5)}{4.0cm}{headerBlue}{VentanaPiramide}{%
+\umlclass{VentanaPiramide}{(0.0,-11.5)}{4.8cm}{headerBlue}{VentanaPiramide}{%
+-contenedor: Container\\
 -base: JLabel\\
 -altura: JLabel\\
+-apotema: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
+-campoBase: JTextField\\
+-campoAltura: JTextField\\
+-campoApotema: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaPiramide()}
++VentanaPiramide()\\
++actionPerformed(ActionEvent e)}
 
-\umlclass{PanelPir}{(0.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPir}{(0.0,-18.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner};
 
-\umlclass{VentanaCubo}{(4.5,-10.5)}{4.0cm}{headerBlue}{VentanaCubo}{%
+\umlclass{VentanaCubo}{(5.2,-11.5)}{4.5cm}{headerBlue}{VentanaCubo}{%
+-contenedor: Container\\
 -lado: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
+-campoLado: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaCubo()}
++VentanaCubo()\\
++actionPerformed(ActionEvent e)}
 
-\umlclass{PanelCubo}{(4.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCubo}{(5.2,-18.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCubo.south) -- (PanelCubo.north) node[label, midway, right] {Inner};
 
-\umlclass{VentanaPrisma}{(9.0,-10.5)}{4.0cm}{headerBlue}{VentanaPrisma}{%
+\umlclass{VentanaPrisma}{(10.4,-11.5)}{4.8cm}{headerBlue}{VentanaPrisma}{%
+-contenedor: Container\\
 -base: JLabel\\
 -altura: JLabel\\
 -profundidad: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
+-campoBase: JTextField\\
+-campoAltura: JTextField\\
+-campoProfundidad: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaPrisma()}
++VentanaPrisma()\\
++actionPerformed(ActionEvent e)}
 
-\umlclass{PanelPri}{(9.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPri}{(10.4,-18.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPrisma.south) -- (PanelPri.north) node[label, midway, right] {Inner};
 
-\umlclass{Cilindro}{(-9.0,-20.5)}{4.0cm}{headerGreen}{Cilindro}{%
+\umlclass{Cilindro}{(-10.4,-24.5)}{4.2cm}{headerGreen}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
-+calcularVolumen()}
++Cilindro(double, double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
 
-\umlclass{Esfera}{(-4.5,-20.5)}{3.8cm}{headerGreen}{Esfera}{%
+\umlclass{Esfera}{(-5.2,-24.5)}{4.0cm}{headerGreen}{Esfera}{%
 -radio: double}{%
-+calcularVolumen()}
++Esfera(double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
 
-\umlclass{Piramide}{(0.0,-20.5)}{4.5cm}{headerGreen}{Piramide}{%
+\umlclass{Piramide}{(0.0,-24.5)}{4.5cm}{headerGreen}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
-+calcularVolumen()}
++Piramide(double, double, double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
 
-\umlclass{Cubo}{(4.5,-20.5)}{3.8cm}{headerGreen}{Cubo}{%
+\umlclass{Cubo}{(5.2,-24.5)}{4.0cm}{headerGreen}{Cubo}{%
 -lado: double}{%
-+calcularVolumen()}
++Cubo(double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
 
-\umlclass{Prisma}{(9.0,-20.5)}{4.5cm}{headerGreen}{Prisma}{%
+\umlclass{Prisma}{(10.4,-24.5)}{4.5cm}{headerGreen}{Prisma}{%
 -base: double\\
 -altura: double\\
 -profundidad: double}{%
-+calcularVolumen()}
++Prisma(double, double, double)\\
++calcularVolumen(): double\\
++calcularSuperficie(): double}
 
-\umlclass{FiguraGeometrica}{(0.0,-26.0)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
+\umlclass{FiguraGeometrica}{(0.0,-30.0)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\

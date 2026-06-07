@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.26)  6 JUN 2026 20:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.26)  6 JUN 2026 20:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -912,7 +912,12 @@ File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count362
 )
-(./Entregable_Actividad_3.aux)
+(./Entregable_Actividad_3.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 11.
+)
 \openout1 = `Entregable_Actividad_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -970,8 +975,6 @@ LaTeX Font Info:    ... okay on input line 80.
 
 LaTeX Info: Redefining \. on input line 80.
 LaTeX Info: Redefining \% on input line 80.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 80.
 LaTeX Info: Redefining \microtypecontext on input line 80.
 Package microtype Info: Applying patch `item' on input line 80.
 Package microtype Info: Applying patch `toc' on input line 80.
@@ -1074,35 +1077,35 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (c:/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-<imagenes/1.png, id=31, 231.11343pt x 311.66437pt>
-File: imagenes/1.png Graphic file (type png)
-<use imagenes/1.png>
-Package pdftex.def Info: imagenes/1.png  used on input line 133.
-(pdftex.def)             Requested size: 227.62206pt x 306.9603pt.
-<imagenes/2.png, id=33, 233.37187pt x 311.66437pt>
-File: imagenes/2.png Graphic file (type png)
-<use imagenes/2.png>
-Package pdftex.def Info: imagenes/2.png  used on input line 140.
-(pdftex.def)             Requested size: 227.62206pt x 303.99756pt.
- [1
+) [1
 
 {c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/
-texmf-dist/fonts/enc/dvips/base/8r.enc} <./imagenes/1.PNG>]
-<imagenes/3.png, id=46, 217.5628pt x 90.3375pt>
+texmf-dist/fonts/enc/dvips/base/8r.enc}]
+<imagenes/1.png, id=75, 231.11343pt x 311.66437pt>
+File: imagenes/1.png Graphic file (type png)
+<use imagenes/1.png>
+Package pdftex.def Info: imagenes/1.png  used on input line 161.
+(pdftex.def)             Requested size: 227.62206pt x 306.9603pt.
+<imagenes/2.png, id=77, 233.37187pt x 311.66437pt>
+File: imagenes/2.png Graphic file (type png)
+<use imagenes/2.png>
+Package pdftex.def Info: imagenes/2.png  used on input line 168.
+(pdftex.def)             Requested size: 227.62206pt x 303.99756pt.
+ [2 <./imagenes/1.PNG>]
+<imagenes/3.png, id=86, 217.5628pt x 90.3375pt>
 File: imagenes/3.png Graphic file (type png)
 <use imagenes/3.png>
-Package pdftex.def Info: imagenes/3.png  used on input line 147.
+Package pdftex.def Info: imagenes/3.png  used on input line 175.
 (pdftex.def)             Requested size: 227.62206pt x 94.52081pt.
-<imagenes/4.png, id=47, 210.7875pt x 92.59593pt>
+<imagenes/4.png, id=87, 210.7875pt x 92.59593pt>
 File: imagenes/4.png Graphic file (type png)
 <use imagenes/4.png>
-Package pdftex.def Info: imagenes/4.png  used on input line 154.
+Package pdftex.def Info: imagenes/4.png  used on input line 182.
 (pdftex.def)             Requested size: 227.62206pt x 99.99362pt.
- [2 <./imagenes/2.PNG> <./imagenes/3.PNG>]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
-34.
- (c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmss.fd
+62.
+
+(c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1110,51 +1113,59 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 234.
+(Font)              <5> on input line 262.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 234.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 262.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10.95> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 234.
- [3{c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./imagenes/4.PNG>
-]
-<imagenes/5.png, id=69, 290.58563pt x 114.4275pt>
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 262.
+ [3 <./imagenes/2.PNG> <./imagenes/3.PNG> <./imagenes/4.PNG>] [4{c:/texlive/202
+6/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+<imagenes/5.png, id=107, 435.87843pt x 109.1578pt>
 File: imagenes/5.png Graphic file (type png)
 <use imagenes/5.png>
-Package pdftex.def Info: imagenes/5.png  used on input line 256.
-(pdftex.def)             Requested size: 227.62206pt x 89.63545pt.
-<imagenes/6.png, id=70, 365.11406pt x 179.16937pt>
+Package pdftex.def Info: imagenes/5.png  used on input line 307.
+(pdftex.def)             Requested size: 227.62206pt x 57.00389pt.
+<imagenes/6.png, id=108, 362.85562pt x 170.13562pt>
 File: imagenes/6.png Graphic file (type png)
 <use imagenes/6.png>
-Package pdftex.def Info: imagenes/6.png  used on input line 265.
-(pdftex.def)             Requested size: 141.12456pt x 69.25244pt.
-<imagenes/7.png, id=71, 362.10281pt x 170.13562pt>
+Package pdftex.def Info: imagenes/6.png  used on input line 316.
+(pdftex.def)             Requested size: 141.12456pt x 66.17088pt.
+<imagenes/7.png, id=109, 359.84438pt x 170.88844pt>
 File: imagenes/7.png Graphic file (type png)
 <use imagenes/7.png>
-Package pdftex.def Info: imagenes/7.png  used on input line 270.
-(pdftex.def)             Requested size: 141.12456pt x 66.30849pt.
-<imagenes/8.png, id=72, 362.85562pt x 186.6975pt>
+Package pdftex.def Info: imagenes/7.png  used on input line 321.
+(pdftex.def)             Requested size: 141.12456pt x 67.0217pt.
+<imagenes/8.png, id=110, 360.59718pt x 186.6975pt>
 File: imagenes/8.png Graphic file (type png)
 <use imagenes/8.png>
-Package pdftex.def Info: imagenes/8.png  used on input line 275.
-(pdftex.def)             Requested size: 141.12456pt x 72.6123pt.
-<imagenes/9.png, id=73, 361.35pt x 190.46156pt>
+Package pdftex.def Info: imagenes/8.png  used on input line 326.
+(pdftex.def)             Requested size: 141.12456pt x 73.06526pt.
+ [5 <./imagenes/5.PNG>]
+<imagenes/11.png, id=118, 361.35pt x 173.14688pt>
+File: imagenes/11.png Graphic file (type png)
+<use imagenes/11.png>
+Package pdftex.def Info: imagenes/11.png  used on input line 335.
+(pdftex.def)             Requested size: 182.09486pt x 87.25485pt.
+<imagenes/12.png, id=119, 374.90062pt x 212.29312pt>
+File: imagenes/12.png Graphic file (type png)
+<use imagenes/12.png>
+Package pdftex.def Info: imagenes/12.png  used on input line 340.
+(pdftex.def)             Requested size: 182.09486pt x 103.11429pt.
+<imagenes/9.png, id=120, 361.35pt x 190.46156pt>
 File: imagenes/9.png Graphic file (type png)
 <use imagenes/9.png>
-Package pdftex.def Info: imagenes/9.png  used on input line 283.
+Package pdftex.def Info: imagenes/9.png  used on input line 348.
 (pdftex.def)             Requested size: 227.62206pt x 119.97687pt.
- [4 <./imagenes/5.PNG> <./imagenes/6.PNG> <./imagenes/7.PNG> <./imagenes/8.PNG>
-] [5 <./imagenes/9.PNG>]
-Overfull \vbox (69.75732pt too high) has occurred while \output is active []
-
-
-[6]
-<imagenes/10.png, id=103, 293.59688pt x 185.94469pt>
+ [6 <./imagenes/6.PNG> <./imagenes/7.PNG> <./imagenes/8.PNG> <./imagenes/11.PNG
+> <./imagenes/12.PNG> <./imagenes/9.PNG>]
+<imagenes/10.png, id=140, 293.59688pt x 185.94469pt>
 File: imagenes/10.png Graphic file (type png)
 <use imagenes/10.png>
-Package pdftex.def Info: imagenes/10.png  used on input line 432.
+Package pdftex.def Info: imagenes/10.png  used on input line 502.
 (pdftex.def)             Requested size: 227.62206pt x 144.15953pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-37.
+[7]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+07.
  (c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1162,7 +1173,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [7 <./imagenes/10.PNG>] (./Entregable_Actividad_3.aux
+ [8 <./imagenes/10.PNG>] (./Entregable_Actividad_3.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1177,15 +1188,15 @@ Package rerunfilecheck Warning: File `Entregable_Actividad_3.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Entregable_Actividad_3.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  1CE117EB2C4F7C78CA129318AC6F2ECE;1775.
+(rerunfilecheck)             Before: 1CE117EB2C4F7C78CA129318AC6F2ECE;1775
+(rerunfilecheck)             After:  5B7313F3F00C89F6FAD2F77A06544A34;2030.
  ) 
 Here is how much of TeX's memory you used:
- 27866 strings out of 467339
- 507759 string characters out of 5419545
- 980027 words of memory out of 5000000
- 56322 multiletter control sequences out of 15000+600000
- 688865 words of font info for 155 fonts, out of 8000000 for 9000
+ 27990 strings out of 467339
+ 509590 string characters out of 5419545
+ 993259 words of memory out of 5000000
+ 56395 multiletter control sequences out of 15000+600000
+ 693155 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,94p,1019b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/texli
@@ -1193,10 +1204,10 @@ ve/2026/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/texlive/2026/tex
 mf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/texlive/2026/texmf-dist/fo
 nts/type1/public/lm/lmss8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/lm
 /lmssbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Entregable_Actividad_3.pdf (7 pages, 211487 bytes).
+Output written on Entregable_Actividad_3.pdf (8 pages, 238507 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
- 34 named destinations out of 1000 (max. 500000)
- 41631 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 196 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 41713 words of extra memory for PDF output out of 42996 (max. 10000000)
 
