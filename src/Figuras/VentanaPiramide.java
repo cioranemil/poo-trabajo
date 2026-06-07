@@ -77,13 +77,17 @@ public class VentanaPiramide extends JFrame implements ActionListener {
 
             g2.setStroke(new BasicStroke(2));
             
+            // Gradiente vibrante cálido
+            GradientPaint gradientD = new GradientPaint(85, 20, new Color(255, 220, 50), 100, 150, new Color(255, 120, 0));
+            GradientPaint gradientI = new GradientPaint(85, 20, new Color(255, 200, 0), 35, 150, new Color(220, 80, 0));
+
             // Dibujar la base de la pirámide (un romboide simulando perspectiva)
             int[] baseX = {50, 150, 120, 20};
             int[] baseY = {150, 150, 120, 120};
             
-            g2.setColor(new Color(180, 180, 130));
+            g2.setColor(new Color(200, 100, 0));
             g2.fillPolygon(baseX, baseY, 4);
-            g2.setColor(Color.DARK_GRAY);
+            g2.setColor(new Color(100, 50, 0));
             g2.drawPolygon(baseX, baseY, 4);
 
             // Dibujar las caras visibles
@@ -93,17 +97,17 @@ public class VentanaPiramide extends JFrame implements ActionListener {
             // Cara frontal derecha
             int[] caraDX = {150, 50, puntaX};
             int[] caraDY = {150, 150, puntaY};
-            g2.setColor(new Color(220, 220, 160));
+            g2.setPaint(gradientD);
             g2.fillPolygon(caraDX, caraDY, 3);
-            g2.setColor(Color.DARK_GRAY);
+            g2.setColor(new Color(150, 50, 0));
             g2.drawPolygon(caraDX, caraDY, 3);
 
             // Cara frontal izquierda
             int[] caraIX = {50, 20, puntaX};
             int[] caraIY = {150, 120, puntaY};
-            g2.setColor(new Color(200, 200, 140));
+            g2.setPaint(gradientI);
             g2.fillPolygon(caraIX, caraIY, 3);
-            g2.setColor(Color.DARK_GRAY);
+            g2.setColor(new Color(150, 50, 0));
             g2.drawPolygon(caraIX, caraIY, 3);
         }
     }

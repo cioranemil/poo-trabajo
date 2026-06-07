@@ -76,21 +76,25 @@ public class VentanaPrisma extends JFrame implements ActionListener {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-            g2.setColor(new Color(150, 220, 150));
+            GradientPaint gradFrontal = new GradientPaint(30, 40, new Color(0, 200, 150), 130, 130, new Color(0, 100, 80));
+            GradientPaint gradSuperior = new GradientPaint(50, 20, new Color(50, 255, 180), 130, 40, new Color(0, 150, 120));
+            GradientPaint gradDerecha = new GradientPaint(130, 40, new Color(0, 150, 100), 150, 130, new Color(0, 80, 50));
+
             // Caras rellenas para el prisma
             Polygon caraSuperior = new Polygon(new int[]{50, 150, 130, 30}, new int[]{20, 20, 40, 40}, 4);
             Polygon caraFrontal = new Polygon(new int[]{30, 130, 130, 30}, new int[]{40, 40, 130, 130}, 4);
             Polygon caraDerecha = new Polygon(new int[]{130, 150, 150, 130}, new int[]{40, 20, 110, 130}, 4);
             
+            g2.setPaint(gradFrontal);
             g2.fillPolygon(caraFrontal);
-            g2.setColor(new Color(130, 200, 130));
+            g2.setPaint(gradSuperior);
             g2.fillPolygon(caraSuperior);
-            g2.setColor(new Color(110, 180, 110));
+            g2.setPaint(gradDerecha);
             g2.fillPolygon(caraDerecha);
 
             // Borde
-            g2.setColor(Color.DARK_GRAY);
-            g2.setStroke(new BasicStroke(2));
+            g2.setColor(new Color(0, 50, 30));
+            g2.setStroke(new BasicStroke(2.5f));
             g2.drawPolygon(caraFrontal);
             g2.drawPolygon(caraSuperior);
             g2.drawPolygon(caraDerecha);

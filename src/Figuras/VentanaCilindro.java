@@ -72,20 +72,22 @@ public class VentanaCilindro extends JFrame implements ActionListener {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-            g2.setColor(new Color(150, 200, 200));
-            // Dibujar el cuerpo del cilindro (rectangulo central)
+            // Gradiente para el cuerpo del cilindro
+            GradientPaint gradient = new GradientPaint(50, 40, new Color(0, 200, 255), 150, 40, new Color(0, 100, 200));
+            g2.setPaint(gradient);
             g2.fillRect(50, 40, 100, 100);
             
-            // Dibujar las tapas del cilindro (ovalos)
-            g2.setColor(new Color(120, 180, 180));
-            g2.fillOval(50, 20, 100, 40); // Tapa superior
+            // Tapa superior
+            g2.setColor(new Color(0, 230, 255));
+            g2.fillOval(50, 20, 100, 40);
             
-            g2.setColor(new Color(150, 200, 200));
-            g2.fillOval(50, 120, 100, 40); // Tapa inferior
+            // Tapa inferior (gradiente también)
+            g2.setPaint(gradient);
+            g2.fillOval(50, 120, 100, 40);
 
-            // Contornos negros
-            g2.setColor(Color.DARK_GRAY);
-            g2.setStroke(new BasicStroke(2));
+            // Contornos oscuros y elegantes
+            g2.setColor(new Color(0, 50, 100));
+            g2.setStroke(new BasicStroke(2.5f));
             g2.drawOval(50, 20, 100, 40); // Tapa superior
             g2.drawArc(50, 120, 100, 40, 180, 180); // Solo la parte inferior de la base
             g2.drawLine(50, 40, 50, 140); // Lado izquierdo

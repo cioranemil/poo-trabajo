@@ -66,19 +66,19 @@ public class VentanaEsfera extends JFrame implements ActionListener {
             Graphics2D g2 = (Graphics2D) g;
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-            // Sombreado radial para simular una esfera 3D
+            // Sombreado radial vibrante para simular una esfera 3D
             RadialGradientPaint paint = new RadialGradientPaint(
                     new Point(80, 50), 70,
                     new float[]{0.0f, 1.0f},
-                    new Color[]{new Color(250, 200, 250), new Color(150, 80, 150)}
+                    new Color[]{new Color(255, 100, 200), new Color(120, 0, 80)}
             );
             
             g2.setPaint(paint);
             g2.fillOval(30, 20, 140, 140);
             
-            // Borde
-            g2.setColor(Color.DARK_GRAY);
-            g2.setStroke(new BasicStroke(2));
+            // Borde oscuro vibrante
+            g2.setColor(new Color(80, 0, 50));
+            g2.setStroke(new BasicStroke(2.5f));
             g2.drawOval(30, 20, 140, 140);
         }
     }
