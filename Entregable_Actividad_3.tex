@@ -123,7 +123,35 @@ Para esta primera parte armamos una ventana que pide cinco notas. Después de in
  \item Nos aseguramos de que no se pueda calcular nada si dejaron algún espacio en blanco.
 \end{itemize}
 
-\subsection{Así se ve la interfaz}
+\subsection{Casos de Uso}
+A continuación, se describen las interacciones principales que el usuario (o el sistema) puede realizar dentro de la aplicación de notas.
+
+\textbf{Caso de Uso 1: Calcular Estadísticas de Notas}
+\begin{itemize}
+    \item \textbf{Actor principal:} Usuario.
+    \item \textbf{Precondición:} La ventana de Notas debe estar abierta.
+    \item \textbf{Flujo:} El usuario escribe las 5 notas requeridas en las cajas de texto y presiona el botón \textit{Calcular}. El sistema recibe los datos, realiza las operaciones matemáticas correspondientes y muestra el promedio, la desviación y los valores mayor/menor en pantalla.
+\end{itemize}
+
+\textbf{Caso de Uso 2: Validar Campos Vacíos}
+\begin{itemize}
+    \item \textbf{Actor principal:} Sistema.
+    \item \textbf{Flujo Alternativo:} Si el usuario presiona \textit{Calcular} pero olvidó rellenar alguna de las notas, el sistema detiene el proceso matemático y muestra una ventana emergente de alerta para avisarle que todos los campos son obligatorios.
+\end{itemize}
+
+\textbf{Caso de Uso 3: Manejo de Formato Incorrecto}
+\begin{itemize}
+    \item \textbf{Actor principal:} Sistema.
+    \item \textbf{Flujo Alternativo:} Si el usuario introduce accidentalmente texto no numérico (como letras o caracteres especiales), el bloque \textit{try-catch} intercepta el error. El sistema evita cerrarse inesperadamente y despliega un cuadro de diálogo rojo notificando el fallo de formato.
+\end{itemize}
+
+\textbf{Caso de Uso 4: Reiniciar Interfaz}
+\begin{itemize}
+    \item \textbf{Actor principal:} Usuario.
+    \item \textbf{Flujo:} Tras realizar un cálculo o equivocarse, el usuario pulsa el botón \textit{Limpiar}. El sistema vacía inmediatamente todos los \textit{JTextField} y restablece los resultados visuales a cero para iniciar una nueva consulta.
+\end{itemize}
+
+\subsection{Vistas de la aplicación}
 Aquí puse unas capturas de cómo funciona el programa paso a paso:
 
 \begin{enumerate}
@@ -244,7 +272,30 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 
 
 \section{Parte 2: Cálculo de Figuras Geométricas}
-En esta segunda parte hicimos un programa para sacar el volumen y la superficie de tres figuras tridimensionales: Cilindro, Esfera y Pirámide. Utilizamos herencia, donde todas las figuras concretas heredan sus datos principales de una superclase genérica.
+En esta segunda parte hicimos un programa para sacar el volumen y la superficie de cinco figuras tridimensionales: Cilindro, Esfera, Pirámide, Cubo y Prisma. Utilizamos herencia, donde todas las figuras concretas heredan sus datos principales de una superclase genérica.
+
+\subsection{Casos de Uso}
+A continuación, los casos de uso para la herramienta de cálculo geométrico:
+
+\textbf{Caso de Uso 1: Seleccionar Figura a Calcular}
+\begin{itemize}
+    \item \textbf{Actor principal:} Usuario.
+    \item \textbf{Flujo:} El sistema despliega el menú principal con cinco botones correspondientes a cada figura geométrica. El usuario selecciona la figura de la cual desea conocer las propiedades (ej. Cubo), y el sistema abre la ventana específica asociada a esa figura.
+\end{itemize}
+
+\textbf{Caso de Uso 2: Procesar Dimensiones Geométricas}
+\begin{itemize}
+    \item \textbf{Actor principal:} Usuario.
+    \item \textbf{Precondición:} Estar dentro de la ventana de una figura específica.
+    \item \textbf{Flujo:} El usuario digita los valores solicitados (como radio, altura o lados) y oprime \textit{Calcular}. El sistema crea el objeto correspondiente, aplica la herencia de la superclase y retorna el volumen y la superficie en pantalla.
+\end{itemize}
+
+\textbf{Caso de Uso 3: Excepción por Datos Erróneos}
+\begin{itemize}
+    \item \textbf{Actor principal:} Sistema.
+    \item \textbf{Flujo Alternativo:} Al igual que en la calculadora de notas, el sistema verifica que las dimensiones ingresadas por el usuario sean dígitos válidos. Si el campo está vacío o contiene letras, detiene el proceso y emite una alerta.
+\end{itemize}
+
 
 \subsection{Vistas de la aplicación}
 La aplicación está dividida por pequeñas ventanas para cada figura.
@@ -277,6 +328,20 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
         \end{minipage}
     \end{figure}
 
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/11}
+            \caption{Datos del Cubo.}
+        \end{minipage}\hspace{1cm}
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/12}
+            \caption{Datos del Prisma.}
+        \end{minipage}
+    \end{figure}
+
     \item \textbf{Prevención de errores:} Igual que en el ejercicio anterior, controlamos que si pones letras en vez de números, el programa te avise.
     \begin{figure}[H]
         \centering
@@ -286,7 +351,7 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
 \end{enumerate}
 
 \subsection{Diagrama de Clases (UML)}
-Se agregó información de las clases internas (\textit{PanelGrafico}) usadas para dibujar los sólidos mediante la librería Graphics2D.
+Se agregó información de las clases internas (\textit{PanelGrafico}) usadas para dibujar los sólidos mediante la librería Graphics2D, así como las clases recién incorporadas del Cubo y el Prisma.
 
 \begin{figure}[H]
 \begin{center}
@@ -304,83 +369,82 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \umlclass{VentanaPrincipal}{(0,-4.0)}{4.7cm}{headerBlue}{VentanaPrincipal}{%
 -btnCilindro: JButton\\
 -btnEsfera: JButton\\
--btnPiramide: JButton}{%
+-btnPiramide: JButton\\
+-btnCubo: JButton\\
+-btnPrisma: JButton}{%
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-6.0,-10.5)}{4.8cm}{headerBlue}{VentanaCilindro}{%
--contenedor: Container\\
+\umlclass{VentanaCilindro}{(-9.0,-10.5)}{4.0cm}{headerBlue}{VentanaCilindro}{%
 -radio: JLabel\\
 -altura: JLabel\\
--volumen: JLabel\\
--superficie: JLabel\\
--campoRadio: JTextField\\
--campoAltura: JTextField\\
--calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaCilindro()\\
-+actionPerformed(ActionEvent evento)}
++VentanaCilindro()}
 
-\umlclass{PanelCil}{(-6.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
-\draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
+\umlclass{PanelCil}{(-9.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner};
 
-
-\umlclass{VentanaEsfera}{(0.0,-10.5)}{4.5cm}{headerBlue}{VentanaEsfera}{%
--contenedor: Container\\
+\umlclass{VentanaEsfera}{(-4.5,-10.5)}{4.0cm}{headerBlue}{VentanaEsfera}{%
 -radio: JLabel\\
--volumen: JLabel\\
--superficie: JLabel\\
--campoRadio: JTextField\\
--calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaEsfera()\\
-+actionPerformed(ActionEvent evento)}
++VentanaEsfera()}
 
-\umlclass{PanelEsf}{(0.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
-\draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
+\umlclass{PanelEsf}{(-4.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner};
 
-
-\umlclass{VentanaPiramide}{(6.0,-10.5)}{4.8cm}{headerBlue}{VentanaPiramide}{%
--contenedor: Container\\
+\umlclass{VentanaPiramide}{(0.0,-10.5)}{4.0cm}{headerBlue}{VentanaPiramide}{%
 -base: JLabel\\
 -altura: JLabel\\
--apotema: JLabel\\
--volumen: JLabel\\
--superficie: JLabel\\
--campoBase: JTextField\\
--campoAltura: JTextField\\
--campoApotema: JTextField\\
--calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
-+VentanaPiramide()\\
-+actionPerformed(ActionEvent evento)}
++VentanaPiramide()}
 
-\umlclass{PanelPir}{(6.0,-16.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
-\draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
+\umlclass{PanelPir}{(0.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner};
 
+\umlclass{VentanaCubo}{(4.5,-10.5)}{4.0cm}{headerBlue}{VentanaCubo}{%
+-lado: JLabel\\
+-panelGrafico: PanelGrafico}{%
++VentanaCubo()}
 
-\umlclass{Cilindro}{(-6.0,-21.5)}{4.0cm}{headerGreen}{Cilindro}{%
+\umlclass{PanelCubo}{(4.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaCubo.south) -- (PanelCubo.north) node[label, midway, right] {Inner};
+
+\umlclass{VentanaPrisma}{(9.0,-10.5)}{4.0cm}{headerBlue}{VentanaPrisma}{%
+-base: JLabel\\
+-altura: JLabel\\
+-profundidad: JLabel\\
+-panelGrafico: PanelGrafico}{%
++VentanaPrisma()}
+
+\umlclass{PanelPri}{(9.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaPrisma.south) -- (PanelPri.north) node[label, midway, right] {Inner};
+
+\umlclass{Cilindro}{(-9.0,-20.5)}{4.0cm}{headerGreen}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
-+Cilindro(double r, double a)\\
-+calcularVolumen(): double\\
-+calcularSuperficie(): double}
++calcularVolumen()}
 
-\umlclass{Esfera}{(0.0,-21.5)}{3.8cm}{headerGreen}{Esfera}{%
+\umlclass{Esfera}{(-4.5,-20.5)}{3.8cm}{headerGreen}{Esfera}{%
 -radio: double}{%
-+Esfera(double r)\\
-+calcularVolumen(): double\\
-+calcularSuperficie(): double}
++calcularVolumen()}
 
-\umlclass{Piramide}{(6.0,-21.5)}{4.5cm}{headerGreen}{Piramide}{%
+\umlclass{Piramide}{(0.0,-20.5)}{4.5cm}{headerGreen}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
-+Piramide(double b, double h, double a)\\
-+calcularVolumen(): double\\
-+calcularSuperficie(): double}
++calcularVolumen()}
 
-\umlclass{FiguraGeometrica}{(0.0,-27.0)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
+\umlclass{Cubo}{(4.5,-20.5)}{3.8cm}{headerGreen}{Cubo}{%
+-lado: double}{%
++calcularVolumen()}
+
+\umlclass{Prisma}{(9.0,-20.5)}{4.5cm}{headerGreen}{Prisma}{%
+-base: double\\
+-altura: double\\
+-profundidad: double}{%
++calcularVolumen()}
+
+\umlclass{FiguraGeometrica}{(0.0,-26.0)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\
@@ -397,7 +461,7 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
     fill=headerGreen!5,
     inner xsep=15pt,
     inner ysep=15pt,
-    fit=(Cilindro) (Esfera) (Piramide) (FiguraGeometrica)
+    fit=(Cilindro) (Prisma) (FiguraGeometrica)
   ] (namespace2) {};
   \node[
     anchor=south west,
@@ -407,17 +471,23 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \end{scope}
 
 \draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Inicia};
-\draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north);
+\draw[association] (VentanaPrincipal.south) -- (VentanaPiramide.north);
 \draw[association] (VentanaPrincipal.south) -| (VentanaCilindro.north);
-\draw[association] (VentanaPrincipal.south) -| (VentanaPiramide.north);
+\draw[association] (VentanaPrincipal.south) -| (VentanaEsfera.north);
+\draw[association] (VentanaPrincipal.south) -| (VentanaCubo.north);
+\draw[association] (VentanaPrincipal.south) -| (VentanaPrisma.north);
 
 \draw[association] (PanelCil.south) -- (Cilindro.north);
 \draw[association] (PanelEsf.south) -- (Esfera.north);
 \draw[association] (PanelPir.south) -- (Piramide.north);
+\draw[association] (PanelCubo.south) -- (Cubo.north);
+\draw[association] (PanelPri.south) -- (Prisma.north);
 
-\draw[inheritance] (Cilindro.south) -- ++(0,-1.2) -| (FiguraGeometrica.north);
-\draw[inheritance] (Esfera.south) -- (FiguraGeometrica.north);
-\draw[inheritance] (Piramide.south) -- ++(0,-1.2) -| (FiguraGeometrica.north);
+\draw[inheritance] (Cilindro.south) -- ++(0,-1.0) -| (FiguraGeometrica.north);
+\draw[inheritance] (Esfera.south) -- ++(0,-1.0) -| (FiguraGeometrica.north);
+\draw[inheritance] (Piramide.south) -- (FiguraGeometrica.north);
+\draw[inheritance] (Cubo.south) -- ++(0,-1.0) -| (FiguraGeometrica.north);
+\draw[inheritance] (Prisma.south) -- ++(0,-1.0) -| (FiguraGeometrica.north);
 
 \end{tikzpicture}%
 }
