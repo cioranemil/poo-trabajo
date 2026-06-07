@@ -47,7 +47,7 @@ public class MenuActividad3 extends JFrame implements ActionListener {
         JButton boton = new JButton(texto);
         boton.setFont(new Font("Segoe UI", Font.BOLD, 16));
         boton.setBackground(colorFondo);
-        boton.setForeground(Color.WHITE);
+        boton.setForeground(new Color(30, 30, 30)); // Color de texto oscuro para mayor visibilidad
         boton.setFocusPainted(false);
         boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         boton.addActionListener(this);

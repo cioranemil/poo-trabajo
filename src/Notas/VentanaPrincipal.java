@@ -46,7 +46,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         calcular = new JButton("Calcular");
         calcular.setBounds(30, 190, 110, 30);
         calcular.setBackground(new Color(70, 130, 180));
-        calcular.setForeground(Color.WHITE);
+        calcular.setForeground(new Color(30, 30, 30));
         calcular.setFont(fuenteRes);
         calcular.setFocusPainted(false);
         calcular.addActionListener(this);
@@ -54,7 +54,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         limpiar = new JButton("Limpiar");
         limpiar.setBounds(150, 190, 105, 30);
         limpiar.setBackground(new Color(200, 70, 70));
-        limpiar.setForeground(Color.WHITE);
+        limpiar.setForeground(new Color(30, 30, 30));
         limpiar.setFont(fuenteRes);
         limpiar.setFocusPainted(false);
         limpiar.addActionListener(this);
