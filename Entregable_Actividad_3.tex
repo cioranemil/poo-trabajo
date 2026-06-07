@@ -128,30 +128,30 @@ Aquí puse unas capturas de cómo funciona el programa paso a paso:
 
 \begin{enumerate}
     \item \textbf{Inicio:} Primero se abre la ventana vacía esperando las 5 notas.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/1}
+        \includegraphics[width=0.5\textwidth]{imagenes/1}
         \caption{Ventana inicial esperando datos.}
     \end{figure}
 
     \item \textbf{Cálculo correcto:} Luego de darle a calcular con buenos datos, muestra los resultados abajo.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/2}
+        \includegraphics[width=0.5\textwidth]{imagenes/2}
         \caption{Resultados mostrados.}
     \end{figure}
 
     \item \textbf{Aviso por datos faltantes:} Si falta rellenar algo, sale este aviso para que el usuario complete todo.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/3}
+        \includegraphics[width=0.5\textwidth]{imagenes/3}
         \caption{Aviso por campos vacíos.}
     \end{figure}
 
     \item \textbf{Aviso por texto inválido:} Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con un cuadro rojo.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/4}
+        \includegraphics[width=0.5\textwidth]{imagenes/4}
         \caption{Error de formato numérico.}
     \end{figure}
 \end{enumerate}
@@ -159,7 +159,7 @@ Aquí puse unas capturas de cómo funciona el programa paso a paso:
 \subsection{Diagrama de Clases (UML)}
 Se complementó la información del diagrama para reflejar detalladamente la estructura de la interfaz y la lógica de negocio.
 
-\begin{figure}[htbp] 
+\begin{figure}[H] 
 \begin{center}
 \resizebox{0.95\textwidth}{!}{%
 \begin{tikzpicture}[
@@ -251,14 +251,14 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
 
 \begin{enumerate}
     \item \textbf{Menú principal de figuras:} Al principio sale este menú para escoger qué figura quieres calcular.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/5}
+        \includegraphics[width=0.5\textwidth]{imagenes/5}
         \caption{Ventana inicial de selección.}
     \end{figure}
 
     \item \textbf{Ventanas de cada figura:} Al abrirse, cada una pide los datos que necesita específicamente para su fórmula.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
         \begin{minipage}{0.31\textwidth}
             \centering
@@ -278,9 +278,9 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
     \end{figure}
 
     \item \textbf{Prevención de errores:} Igual que en el ejercicio anterior, controlamos que si pones letras en vez de números, el programa te avise.
-    \begin{figure}[htbp]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/9}
+        \includegraphics[width=0.5\textwidth]{imagenes/9}
         \caption{Aviso de error en el formato.}
     \end{figure}
 \end{enumerate}
@@ -288,7 +288,7 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
 \subsection{Diagrama de Clases (UML)}
 Se agregó información de las clases internas (\textit{PanelGrafico}) usadas para dibujar los sólidos mediante la librería Graphics2D.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \begin{center}
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
@@ -427,9 +427,9 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \section{Cómo probar el proyecto y Menú Principal}
 Para que todo sea más fácil de revisar y no tener los archivos sueltos, creamos una ventana extra de \textbf{Menú Principal} (\textit{MenuActividad3}). Este menú agrupa todo y te deja saltar entre el sistema de Notas y el de las Figuras sin salir del programa.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{imagenes/10}
+    \includegraphics[width=0.5\textwidth]{imagenes/10}
     \caption{El menú que unifica toda la actividad 3.}
 \end{figure}
 
