@@ -181,21 +181,29 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 
 \umlclass{Principal}{(0,0)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
 
-\umlclass{VentanaPrincipal}{(0,-5.0)}{5.5cm}{umlHeader}{VentanaPrincipal}{%
+\umlclass{VentanaPrincipal}{(0,-6.5)}{5.5cm}{umlHeader}{VentanaPrincipal}{%
 -contenedor: Container\\
--etiquetas(1-5): JLabel\\
--resultados: JLabel[]\\
--campos(1-5): JTextField\\
--btnCalcular: JButton\\
--btnLimpiar: JButton\\
--fuenteBase: Font\\
--fuenteRes: Font}{%
+-nota1: JLabel\\
+-nota2: JLabel\\
+-nota3: JLabel\\
+-nota4: JLabel\\
+-nota5: JLabel\\
+-promedio: JLabel\\
+-desviacion: JLabel\\
+-mayor: JLabel\\
+-menor: JLabel\\
+-campoNota1: JTextField\\
+-campoNota2: JTextField\\
+-campoNota3: JTextField\\
+-campoNota4: JTextField\\
+-campoNota5: JTextField\\
+-calcular: JButton\\
+-limpiar: JButton}{%
 +VentanaPrincipal()\\
 -inicio()\\
-+actionPerformed(ActionEvent e)\\
-+setDefaultCloseOperation(int)}
++actionPerformed(ActionEvent evento)}
 
-\umlclass{Notas}{(0,-11.0)}{4.8cm}{umlHeader2}{Notas}{%
+\umlclass{Notas}{(0,-15.5)}{4.8cm}{umlHeader2}{Notas}{%
 \textasciitilde{}listaNotas: double[]}{%
 +Notas()\\
 \textasciitilde{}calcularPromedio(): double\\
@@ -315,39 +323,58 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-7.0,-7.5)}{4.8cm}{umlHeader}{VentanaCilindro}{%
+\umlclass{VentanaCilindro}{(-7.0,-8.5)}{4.8cm}{umlHeader}{VentanaCilindro}{%
+-contenedor: Container\\
+-radio: JLabel\\
+-altura: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
 -campoRadio: JTextField\\
 -campoAltura: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
 +VentanaCilindro()\\
-+actionPerformed(ActionEvent e)}
++actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelCil}{(-7.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCil}{(-7.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaEsfera}{(0.0,-7.5)}{4.5cm}{umlHeader}{VentanaEsfera}{%
+\umlclass{VentanaEsfera}{(0.0,-8.5)}{4.5cm}{umlHeader}{VentanaEsfera}{%
+-contenedor: Container\\
+-radio: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
 -campoRadio: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
 +VentanaEsfera()\\
-+actionPerformed(ActionEvent e)}
++actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelEsf}{(0.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelEsf}{(0.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaPiramide}{(7.0,-7.5)}{4.8cm}{umlHeader}{VentanaPiramide}{%
+\umlclass{VentanaPiramide}{(7.0,-8.5)}{4.8cm}{umlHeader}{VentanaPiramide}{%
+-contenedor: Container\\
+-base: JLabel\\
+-altura: JLabel\\
+-apotema: JLabel\\
+-volumen: JLabel\\
+-superficie: JLabel\\
 -campoBase: JTextField\\
 -campoAltura: JTextField\\
+-campoApotema: JTextField\\
+-calcular: JButton\\
 -panelGrafico: PanelGrafico}{%
 +VentanaPiramide()\\
-+actionPerformed(ActionEvent e)}
++actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelPir}{(7.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPir}{(7.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{FiguraGeometrica}{(0.0,-15.5)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
+\umlclass{FiguraGeometrica}{(0.0,-18.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\
@@ -355,20 +382,20 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +getVolumen(): double\\
 +getSuperficie(): double}
 
-\umlclass{Cilindro}{(-7.0,-21.0)}{4.0cm}{umlHeader2}{Cilindro}{%
+\umlclass{Cilindro}{(-7.0,-23.5)}{4.0cm}{umlHeader2}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
 +Cilindro(double r, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Esfera}{(0.0,-21.0)}{3.8cm}{umlHeader2}{Esfera}{%
+\umlclass{Esfera}{(0.0,-23.5)}{3.8cm}{umlHeader2}{Esfera}{%
 -radio: double}{%
 +Esfera(double r)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Piramide}{(7.0,-21.0)}{4.5cm}{umlHeader2}{Piramide}{%
+\umlclass{Piramide}{(7.0,-23.5)}{4.5cm}{umlHeader2}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
