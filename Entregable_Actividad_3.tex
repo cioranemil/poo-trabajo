@@ -57,13 +57,12 @@
 \fancyfoot[R]{\thepage} 
 
 %----------------------------------------------------------------------------------------
-%	UML DIAGRAM CONFIGURATION (NUEVO DISEÑO)
+%	UML DIAGRAM CONFIGURATION
 %----------------------------------------------------------------------------------------
-% --- Color palette ---
-\definecolor{umlHeader}{RGB}{240,240,240} % Gris claro
-\definecolor{umlHeader2}{RGB}{255,245,230} % Naranja muy pálido
-\definecolor{umlBorder}{RGB}{80,80,80} % Gris oscuro
-\definecolor{namespaceFill}{RGB}{250,250,250} % Casi blanco
+\definecolor{umlHeader}{RGB}{240,240,240} 
+\definecolor{umlHeader2}{RGB}{255,245,230} 
+\definecolor{umlBorder}{RGB}{80,80,80} 
+\definecolor{namespaceFill}{RGB}{250,250,250} 
 \definecolor{assocColor}{RGB}{100,100,100} 
 \definecolor{inheritColor}{RGB}{50,50,50}
 
@@ -124,51 +123,52 @@ cristian@unal.edu.co
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
 
-\section{Parte 1: Sistema de Evaluación Estudiantil}
-Se requiere diseñar un aplicativo gráfico capaz de gestionar las calificaciones de un alumno. La ventana principal debe solicitar exactamente cinco notas y, a partir de ellas, calcular métricas estadísticas básicas (promedio, desviación estándar, valor máximo y mínimo) que se mostrarán en la misma interfaz.
+\section{Parte 1: Notas de Estudiantes}
+Para esta primera parte armamos una ventana que pide cinco notas. Después de ingresarlas, el programa calcula el promedio, la desviación estándar y nos dice cuál fue la mayor y la menor nota de todas.
 
-\textbf{Validaciones adicionales implementadas:}
+\textbf{Cosas extra que le pusimos para que no falle:}
 \begin{itemize}
- \item Prevención de ingresos alfanuméricos mediante el manejo de excepciones numéricas.
- \item Obligatoriedad de los 5 campos: no se calcularán métricas si hay campos en blanco.
+ \item Manejo de errores por si el usuario mete letras en vez de números por accidente.
+ \item Nos aseguramos de que no se pueda calcular nada si dejaron algún espacio en blanco.
 \end{itemize}
 
 \bigskip
 
-\subsection{Componentes Gráficos}
-A continuación, se documenta la interfaz de usuario para el cálculo de notas:
+\subsection{Así se ve la interfaz}
+Aquí puse unas capturas de cómo funciona el programa paso a paso:
 
 \begin{enumerate}
-    \item \textbf{Estado Inicial:} Interfaz dispuesta para recibir las cinco notas del alumno en formato decimal.
+    \item \textbf{Inicio:} Primero se abre la ventana vacía esperando las 5 notas.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{1}
-        \caption{Vista inicial sin datos ingresados.}
+        \includegraphics[width=0.6\textwidth]{imagenes/1}
+        \caption{Ventana inicial esperando datos.}
     \end{figure}
 
-    \item \textbf{Procesamiento Exitoso:} Resultados estadísticos generados y mostrados tras una validación correcta.
+    \item \textbf{Cálculo correcto:} Luego de darle a calcular con buenos datos, muestra los resultados abajo en distintos colores.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{2}
-        \caption{Cálculo de estadísticas con datos correctos.}
+        \includegraphics[width=0.6\textwidth]{imagenes/2}
+        \caption{Resultados mostrados en pantalla.}
     \end{figure}
 
-    \item \textbf{Excepción por Campos Vacíos:} Advertencia modal que frena la operación si faltan calificaciones.
+    \item \textbf{Aviso por datos faltantes:} Si falta rellenar algo, sale este aviso para que el usuario complete todo.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{3}
-        \caption{Diálogo modal advirtiendo la falta de información.}
+        \includegraphics[width=0.6\textwidth]{imagenes/3}
+        \caption{Mensaje de advertencia por campos vacíos.}
     \end{figure}
 
-    \item \textbf{Excepción por Formato Inválido:} Advertencia cuando el usuario digita texto o caracteres que no corresponden a un número decimal válido.
+    \item \textbf{Aviso por texto inválido:} Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con este cuadro.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{4}
-        \caption{Diálogo modal de error de conversión de formato (\textit{NumberFormatException}).}
+        \includegraphics[width=0.6\textwidth]{imagenes/4}
+        \caption{Error de formato de número.}
     \end{figure}
 \end{enumerate}
 
-\subsection{Diagrama Estructural (UML)}
+\subsection{Diagrama de Clases (UML)}
+Se complementó la información del diagrama para reflejar detalladamente la estructura de la interfaz y la lógica de negocio.
 
 \begin{center}
 \begin{tikzpicture}[
@@ -179,21 +179,23 @@ A continuación, se documenta la interfaz de usuario para el cálculo de notas:
   multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
 ]
 
-% Clases Modificadas en Posición y Color
 \umlclass{Principal}{(0,0)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
 
-\umlclass{VentanaPrincipal}{(0,-4.5)}{5.0cm}{umlHeader}{VentanaPrincipal}{%
+\umlclass{VentanaPrincipal}{(0,-5.0)}{5.5cm}{umlHeader}{VentanaPrincipal}{%
 -contenedor: Container\\
 -etiquetas(1-5): JLabel\\
 -resultados: JLabel[]\\
 -campos(1-5): JTextField\\
 -btnCalcular: JButton\\
--btnLimpiar: JButton}{%
+-btnLimpiar: JButton\\
+-fuenteBase: Font\\
+-fuenteRes: Font}{%
 +VentanaPrincipal()\\
--inicializarVista()\\
-+actionPerformed(ActionEvent e)}
+-inicio()\\
++actionPerformed(ActionEvent e)\\
++setDefaultCloseOperation(int)}
 
-\umlclass{Notas}{(0,-9.5)}{4.5cm}{umlHeader2}{Notas}{%
+\umlclass{Notas}{(0,-11.0)}{4.8cm}{umlHeader2}{Notas}{%
 \textasciitilde{}listaNotas: double[]}{%
 +Notas()\\
 \textasciitilde{}calcularPromedio(): double\\
@@ -201,7 +203,6 @@ A continuación, se documenta la interfaz de usuario para el cálculo de notas:
 \textasciitilde{}calcularMenor(): double\\
 \textasciitilde{}calcularMayor(): double}
 
-% Boundaries
 \begin{scope}[on background layer]
   \node[
     draw=umlBorder,
@@ -219,81 +220,81 @@ A continuación, se documenta la interfaz de usuario para el cálculo de notas:
   ] at (namespace.north west) {Paquete: Notas};
 \end{scope}
 
-% Relaciones (Verticales en lugar de horizontales)
 \draw[association] (Principal.south) -- (VentanaPrincipal.north)
-  node[label, midway, right] {Inicia}
+  node[label, midway, right] {Inicia ventana}
   node[multiplicity, near start, left] {1}
   node[multiplicity, near end, left] {1};
 
 \draw[association] (VentanaPrincipal.south) -- (Notas.north)
-  node[label, midway, right] {Delega cálculos a}
+  node[label, midway, right] {Crea instancia para cálculos}
   node[multiplicity, near start, left] {1}
   node[multiplicity, near end, left] {1};
 
 \end{tikzpicture}
 \end{center}
 
-\subsection{Interacciones del Usuario}
+\subsection{Cómo funciona por detrás}
 \begin{itemize}
-    \item \textbf{Cálculo Exitoso:} El usuario introduce las 5 notas obligatorias (ej. 4.5, 3.2...) y oprime el botón \textit{Calcular}. El backend procesa el array y devuelve el promedio, la nota mayor, la menor y la desviación, mostrándose en pantalla de forma instantánea.
-    \item \textbf{Reinicio de Interfaz:} El botón \textit{Limpiar} vacía las cajas de texto y restaura los valores predeterminados para una nueva consulta.
-    \item \textbf{Blindaje de Datos:} El bloque \textit{try-catch} envolvente garantiza que el programa no colapse (\textit{Crash}) si el usuario se equivoca al escribir (ej. escribiendo letras), desplegando en su lugar una alerta amigable.
+    \item \textbf{Cálculo:} Cuando metes las notas y le das a calcular, el código en el \textit{actionPerformed} lee los textos, los convierte a números (\textit{Double.parseDouble}) y llama a los métodos de la clase Notas para hacer la matemática.
+    \item \textbf{Reinicio:} Con el botón Limpiar se borran todos los campos de texto para poder hacer otro cálculo rápido.
+    \item \textbf{Protección:} Le pusimos un bloque \textit{try-catch} para atrapar los \textit{NumberFormatException} y evitar que la app se caiga.
 \end{itemize}
 
 \subsection{Repositorio}
-Acceso al código fuente: \url{https://github.com/cioranemil/poo-trabajo}
+Código disponible en: \url{https://github.com/cioranemil/poo-trabajo}
 \bigskip
 
 %------------------------------------------------
 
 
-\section{Parte 2: Calculadora de Sólidos Geométricos}
-La segunda fase consiste en modelar y calcular atributos espaciales (volumen y superficie) de tres sólidos tridimensionales fundamentales: el Cilindro, la Esfera y la Pirámide.
+\section{Parte 2: Cálculo de Figuras Geométricas}
+En esta segunda parte hicimos un programa para sacar el volumen y la superficie de tres figuras tridimensionales: Cilindro, Esfera y Pirámide.
 
-Se ha diseñado una arquitectura basada en herencia orientada a objetos (POO) donde cada sólido es una clase concreta derivada de una superclase geométrica común.
+Para esto usamos la POO y la herencia, donde todas las figuras concretas heredan sus datos principales de una superclase genérica.
 
 \bigskip
 
-\subsection{Componentes Gráficos}
-La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
+\subsection{Vistas de la aplicación}
+La aplicación está dividida por pequeñas ventanas para cada figura.
 
 \begin{enumerate}
-    \item \textbf{Menú de Selección:} Panel centralizado con opciones dedicadas a cada sólido.
+    \item \textbf{Menú principal de figuras:} Al principio sale este menú para escoger qué figura quieres calcular.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{5}
-        \caption{Ventana enrutadora principal para los tres sólidos.}
+        \includegraphics[width=0.6\textwidth]{imagenes/5}
+        \caption{Ventana inicial de selección.}
     \end{figure}
 
-    \item \textbf{Formularios de Cálculo:} 
+    \item \textbf{Ventanas de cada figura:} Al abrirse, cada una pide los datos que necesita específicamente para su fórmula (por ejemplo, la esfera solo pide el radio).
     \begin{figure}[H]
         \centering
         \begin{minipage}{0.31\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{6}
-            \caption{Vista del Cilindro (Radio y Altura).}
+            \includegraphics[width=\linewidth]{imagenes/6}
+            \caption{Datos del Cilindro.}
         \end{minipage}\hfill
         \begin{minipage}{0.31\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{7}
-            \caption{Vista de la Esfera (Único parámetro: Radio).}
+            \includegraphics[width=\linewidth]{imagenes/7}
+            \caption{Datos de la Esfera.}
         \end{minipage}\hfill
         \begin{minipage}{0.31\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{8}
-            \caption{Vista de la Pirámide (Base, Altura y Apotema).}
+            \includegraphics[width=\linewidth]{imagenes/8}
+            \caption{Datos de la Pirámide.}
         \end{minipage}
     \end{figure}
 
-    \item \textbf{Manejo de Errores:} Protección estricta contra entradas inválidas mediante validación de tipos decimales.
+    \item \textbf{Prevención de errores:} Igual que en el ejercicio anterior, controlamos que si pones letras en vez de números, el programa te avise.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.6\textwidth]{9}
-        \caption{Alerta modal de ingreso de datos incorrecto.}
+        \includegraphics[width=0.6\textwidth]{imagenes/9}
+        \caption{Aviso de error en el formato.}
     \end{figure}
 \end{enumerate}
 
-\subsection{Diagrama Estructural (UML)}
+\subsection{Diagrama de Clases (UML)}
+Se agregó información de las clases internas (\textit{PanelGrafico}) usadas para dibujar los sólidos mediante la librería Graphics2D.
 
 \begin{center}
 \resizebox{\textwidth}{!}{%
@@ -305,7 +306,6 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
   multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
 ]
 
-% CONTROLADOR INICIAL 
 \umlclass{Principal}{(0,1.5)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
 
 \umlclass{VentanaPrincipal}{(0,-2.5)}{4.7cm}{umlHeader}{VentanaPrincipal}{%
@@ -313,34 +313,41 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
 -btnEsfera: JButton\\
 -btnPiramide: JButton}{%
 +VentanaPrincipal()\\
--inicializarComponentes()\\
 +actionPerformed(ActionEvent e)}
 
-% VENTANAS DE INTERFAZ DE USUARIO 
 \umlclass{VentanaCilindro}{(-7.0,-7.5)}{4.8cm}{umlHeader}{VentanaCilindro}{%
 -campoRadio: JTextField\\
 -campoAltura: JTextField\\
--btnCalcular: JButton}{%
+-panelGrafico: PanelGrafico}{%
 +VentanaCilindro()\\
 +actionPerformed(ActionEvent e)}
 
+\umlclass{PanelCil}{(-7.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
+
+
 \umlclass{VentanaEsfera}{(0.0,-7.5)}{4.5cm}{umlHeader}{VentanaEsfera}{%
 -campoRadio: JTextField\\
--btnCalcular: JButton}{%
+-panelGrafico: PanelGrafico}{%
 +VentanaEsfera()\\
 +actionPerformed(ActionEvent e)}
+
+\umlclass{PanelEsf}{(0.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
+
 
 \umlclass{VentanaPiramide}{(7.0,-7.5)}{4.8cm}{umlHeader}{VentanaPiramide}{%
 -campoBase: JTextField\\
 -campoAltura: JTextField\\
--campoApotema: JTextField\\
--btnCalcular: JButton}{%
+-panelGrafico: PanelGrafico}{%
 +VentanaPiramide()\\
 +actionPerformed(ActionEvent e)}
 
+\umlclass{PanelPir}{(7.0,-11.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
 
-% SUPERCLASE (Moviendo superclase arriba para simplificar)
-\umlclass{FiguraGeometrica}{(0.0,-13.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
+
+\umlclass{FiguraGeometrica}{(0.0,-15.5)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\
@@ -348,38 +355,35 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
 +getVolumen(): double\\
 +getSuperficie(): double}
 
-% MODELOS CONCRETOS
-\umlclass{Cilindro}{(-7.0,-18.0)}{4.0cm}{umlHeader2}{Cilindro}{%
+\umlclass{Cilindro}{(-7.0,-21.0)}{4.0cm}{umlHeader2}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
-+Cilindro(double, double)\\
++Cilindro(double r, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Esfera}{(0.0,-18.0)}{3.8cm}{umlHeader2}{Esfera}{%
+\umlclass{Esfera}{(0.0,-21.0)}{3.8cm}{umlHeader2}{Esfera}{%
 -radio: double}{%
-+Esfera(double)\\
++Esfera(double r)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Piramide}{(7.0,-18.0)}{4.5cm}{umlHeader2}{Piramide}{%
+\umlclass{Piramide}{(7.0,-21.0)}{4.5cm}{umlHeader2}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
-+Piramide(double, double, double)\\
++Piramide(double b, double h, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-% RELACIONES 
-\draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Crea};
-
-\draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north) node[label, pos=0.4, right] {Instancia};
+\draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Inicia};
+\draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north);
 \draw[association] (VentanaPrincipal.south) -| (VentanaCilindro.north);
 \draw[association] (VentanaPrincipal.south) -| (VentanaPiramide.north);
 
-\draw[association] (VentanaCilindro.south) -- (Cilindro.north);
-\draw[association] (VentanaEsfera.south) -- (Esfera.north);
-\draw[association] (VentanaPiramide.south) -- (Piramide.north);
+\draw[association] (PanelCil.south) -- (Cilindro.north);
+\draw[association] (PanelEsf.south) -- (Esfera.north);
+\draw[association] (PanelPir.south) -- (Piramide.north);
 
 \draw[inheritance] (Cilindro.east) -- ++(1.5,0) |- (FiguraGeometrica.west);
 \draw[inheritance] (Esfera.north) -- (FiguraGeometrica.south);
@@ -389,35 +393,21 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
 }
 \end{center}
 
-\subsection{Interacciones del Usuario}
-\begin{itemize}
-    \item \textbf{Elección del Sólido:} El usuario tiene a su disposición un menú principal interactivo. Al hacer clic en un botón, se oculta el menú temporalmente y se abre el formulario de cálculo matemático de la figura escogida.
-    \item \textbf{Cálculo Especializado:} Cada figura solicita sus propios parámetros:
-        \begin{itemize}
-            \item \textbf{Esfera:} Requiere exclusivamente el valor del Radio.
-            \item \textbf{Cilindro:} Precisa del Radio basal y su Altura.
-            \item \textbf{Pirámide:} Pide longitud de la Base, Altura y Apotema.
-        \end{itemize}
-    \item \textbf{Actualización de Objetos:} Tras ingresar la información y ejecutar la acción "Calcular", la GUI llama al constructor de la clase correspondiente (Ej. \textit{new Cilindro(r, h)}), invoca sus funciones de volumen y superficie, y extrae los resultados actualizando los marcadores visuales.
-\end{itemize}
-
-\section{Instrucciones de Uso y Menú Principal}
-Se ha incorporado un \textbf{Menú Principal} centralizado que actúa como punto de entrada (clase \textit{MenuActividad3}). Dicho menú proporciona dos botones ("3.1: Sistema de Notas" y "3.2: Sólidos Geométricos") que redirigen a los módulos independientes descritos en las partes 1 y 2.
+\section{Cómo probar el proyecto y Menú Principal}
+Para que todo sea más fácil de revisar y no tener los archivos sueltos, creamos una ventana extra de \textbf{Menú Principal} (\textit{MenuActividad3}). Este menú agrupa todo y te deja saltar entre el sistema de Notas y el de las Figuras sin salir del programa.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{10}
-    \caption{Menú principal interactivo de la aplicación.}
+    \includegraphics[width=0.6\textwidth]{imagenes/10}
+    \caption{El menú que unifica toda la actividad 3.}
 \end{figure}
 
-Para ejecutar el programa completo con su menú unificado, basta con invocar el archivo empaquetado (\textit{.jar}) desde la línea de comandos mediante la siguiente instrucción:
+Para correrlo, solo hay que abrir una consola en la carpeta raíz y ejecutar el archivo `.jar` que ya dejamos compilado, usando este comando:
 \begin{verbatim}
 java -jar Actividad_3_Menu.jar
 \end{verbatim}
 
 \subsection{Repositorio}
-Acceso al código fuente: \url{https://github.com/cioranemil/poo-trabajo}
-
-%----------------------------------------------------------------------------------------
+El proyecto está subido aquí: \url{https://github.com/cioranemil/poo-trabajo}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.26)  6 JUN 2026 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.26)  6 JUN 2026 19:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -961,7 +961,12 @@ File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count385
 )
-No file Entregable_Actividad_3.aux.
+(./Entregable_Actividad_3.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 11.
+)
 \openout1 = `Entregable_Actividad_3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
@@ -984,8 +989,6 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
 LaTeX Font Info:    ... okay on input line 90.
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 90.
 LaTeX Info: Redefining \microtypecontext on input line 90.
 Package microtype Info: Applying patch `item' on input line 90.
 Package microtype Info: Applying patch `toc' on input line 90.
@@ -1003,11 +1006,14 @@ Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
+
 (c:/texlive/2026/texmf-dist/tex/latex/microtype/mt-bch.cfg
 File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 
 )
 Package hyperref Info: Link coloring ON on input line 90.
+
+(./Entregable_Actividad_3.out) (./Entregable_Actividad_3.out)
 \@outlinefile=\write4
 \openout4 = `Entregable_Actividad_3.out'.
 
@@ -1093,8 +1099,33 @@ LaTeX Font Info:    Trying to load font information for U+wasy on input line 10
 (c:/texlive/2026/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
+<1.png, id=51, 231.11343pt x 311.66437pt>
+File: 1.png Graphic file (type png)
+<use 1.png>
+Package pdftex.def Info: 1.png  used on input line 145.
+(pdftex.def)             Requested size: 283.82532pt x 382.77898pt.
+<2.png, id=53, 233.37187pt x 311.66437pt>
+File: 2.png Graphic file (type png)
+<use 2.png>
+Package pdftex.def Info: 2.png  used on input line 152.
+(pdftex.def)             Requested size: 283.82532pt x 379.08862pt.
+ [1
+
+{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/
+texmf-dist/fonts/enc/dvips/base/8r.enc} <./1.PNG>]
+<3.png, id=65, 217.5628pt x 90.3375pt>
+File: 3.png Graphic file (type png)
+<use 3.png>
+Package pdftex.def Info: 3.png  used on input line 159.
+(pdftex.def)             Requested size: 283.82532pt x 117.8674pt.
+<4.png, id=66, 210.7875pt x 92.59593pt>
+File: 4.png Graphic file (type png)
+<use 4.png>
+Package pdftex.def Info: 4.png  used on input line 166.
+(pdftex.def)             Requested size: 283.82532pt x 124.6826pt.
+ [2 <./2.PNG> <./3.PNG>]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-79.
+83.
 
 (c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1104,32 +1135,60 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <7> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 179.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 183.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 215.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 219.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <9> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 215.
- [1
-
-{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/
-texmf-dist/fonts/enc/dvips/base/8r.enc}]
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 219.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-40.
- (c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
+44.
+
+(c:/texlive/2026/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [2{c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [3]
+ [3{c:/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./4.PNG>]
+<5.png, id=88, 290.58563pt x 114.4275pt>
+File: 5.png Graphic file (type png)
+<use 5.png>
+Package pdftex.def Info: 5.png  used on input line 264.
+(pdftex.def)             Requested size: 283.82532pt x 111.77325pt.
+<6.png, id=89, 365.11406pt x 179.16937pt>
+File: 6.png Graphic file (type png)
+<use 6.png>
+Package pdftex.def Info: 6.png  used on input line 273.
+(pdftex.def)             Requested size: 146.64043pt x 71.959pt.
+<7.png, id=90, 362.10281pt x 170.13562pt>
+File: 7.png Graphic file (type png)
+<use 7.png>
+Package pdftex.def Info: 7.png  used on input line 278.
+(pdftex.def)             Requested size: 146.64043pt x 68.89935pt.
+<8.png, id=91, 362.85562pt x 186.6975pt>
+File: 8.png Graphic file (type png)
+<use 8.png>
+Package pdftex.def Info: 8.png  used on input line 283.
+(pdftex.def)             Requested size: 146.64043pt x 75.44969pt.
+<9.png, id=92, 361.35pt x 190.46156pt>
+File: 9.png Graphic file (type png)
+<use 9.png>
+Package pdftex.def Info: 9.png  used on input line 291.
+(pdftex.def)             Requested size: 283.82532pt x 149.59982pt.
+ [4 <./5.PNG> <./6.PNG> <./7.PNG> <./8.PNG> <./9.PNG>]
 LaTeX Font Info:    Trying to load font information for TS1+bch on input line 3
-88.
-
-(c:/texlive/2026/texmf-dist/tex/latex/psnfss/ts1bch.fd
+97.
+ (c:/texlive/2026/texmf-dist/tex/latex/psnfss/ts1bch.fd
 File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
-) [4] [5]
-(./Entregable_Actividad_3.aux
+)
+[5]
+<10.png, id=114, 293.59688pt x 185.94469pt>
+File: 10.png Graphic file (type png)
+<use 10.png>
+Package pdftex.def Info: 10.png  used on input line 409.
+(pdftex.def)             Requested size: 283.82532pt x 179.75609pt.
+ [6 <./10.PNG>] (./Entregable_Actividad_3.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1137,21 +1196,15 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-05-15>
  ***********
+Package rerunfilecheck Info: File `Entregable_Actividad_3.out' has not changed.
 
-
-Package rerunfilecheck Warning: File `Entregable_Actividad_3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Entregable_Actividad_3.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  44936C8721DCA4F4C586D5C0CA79B09C;2122.
+(rerunfilecheck)             Checksum: 44936C8721DCA4F4C586D5C0CA79B09C;2122.
  ) 
 Here is how much of TeX's memory you used:
- 28656 strings out of 467339
- 515538 string characters out of 5419545
- 977945 words of memory out of 5000000
- 57064 multiletter control sequences out of 15000+600000
+ 28779 strings out of 467339
+ 517148 string characters out of 5419545
+ 979049 words of memory out of 5000000
+ 57179 multiletter control sequences out of 15000+600000
  690846 words of font info for 166 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,94p,1066b,869s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1160,10 +1213,10 @@ ve/2026/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/texlive/2026/tex
 mf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/texlive/2026/texmf-dist/fo
 nts/type1/public/lm/lmss8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/lm
 /lmssbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Entregable_Actividad_3.pdf (5 pages, 130796 bytes).
+Output written on Entregable_Actividad_3.pdf (6 pages, 209286 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
- 33 named destinations out of 1000 (max. 500000)
- 47117 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 47255 words of extra memory for PDF output out of 51595 (max. 10000000)
 
