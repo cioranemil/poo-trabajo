@@ -1,15 +1,12 @@
 % Homework Assignment Article
 % LaTeX Template
-\documentclass[a4paper]{article} 
+\documentclass[a4paper,11pt]{article} 
 
 %----------------------------------------------------------------------------------------
 %	FORMATTING
 %----------------------------------------------------------------------------------------
-\addtolength{\hoffset}{-2.25cm}
-\addtolength{\textwidth}{4.5cm}
-\addtolength{\voffset}{-3.25cm}
-\addtolength{\textheight}{5cm}
-\setlength{\parskip}{0pt}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\setlength{\parskip}{0.5em}
 \setlength{\parindent}{0in}
 
 %----------------------------------------------------------------------------------------
@@ -23,12 +20,11 @@
 \usepackage{microtype} 
 \usepackage{amsthm, amsmath, amssymb} 
 \usepackage{float} 
-\usepackage[final, colorlinks = true, linkcolor = black, citecolor = black]{hyperref} 
+\usepackage[final, colorlinks = true, linkcolor = headerBlue, citecolor = headerBlue, urlcolor = headerBlue]{hyperref} 
 \usepackage{graphicx, multicol} 
 \usepackage{xcolor} 
 \usepackage{colortbl} 
 \usepackage{array} 
-\usepackage{marvosym, wasysym} 
 \usepackage{listings} 
 \usepackage{booktabs} 
 
@@ -44,10 +40,7 @@
 
 % Configuración TikZ
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc} 
-
-\usepackage[yyyymmdd]{datetime} 
-\renewcommand{\dateseparator}{-} 
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shadows} 
 
 \usepackage{fancyhdr} 
 \pagestyle{fancy} 
@@ -59,28 +52,26 @@
 %----------------------------------------------------------------------------------------
 %	UML DIAGRAM CONFIGURATION
 %----------------------------------------------------------------------------------------
-\definecolor{umlHeader}{RGB}{240,240,240} 
-\definecolor{umlHeader2}{RGB}{255,245,230} 
-\definecolor{umlBorder}{RGB}{80,80,80} 
-\definecolor{namespaceFill}{RGB}{250,250,250} 
-\definecolor{assocColor}{RGB}{100,100,100} 
-\definecolor{inheritColor}{RGB}{50,50,50}
+\definecolor{headerBlue}{HTML}{245C99} 
+\definecolor{headerGreen}{HTML}{2D7A4C} 
+\definecolor{assocColor}{HTML}{444444} 
+\definecolor{inheritColor}{HTML}{222222}
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 % UML class macro
 \newcommand{\umlclass}[7]{%
-  \node[inner sep=0pt, outer sep=0pt] (#1) at #2 {%
-    \scriptsize
-    \renewcommand{\arraystretch}{1.15}%
-    \setlength{\tabcolsep}{5pt}%
+  \node[inner sep=0pt, outer sep=0pt, drop shadow={opacity=0.25, shadow xshift=2pt, shadow yshift=-2pt}] (#1) at #2 {%
+    \scriptsize\sffamily
+    \renewcommand{\arraystretch}{1.25}%
+    \setlength{\tabcolsep}{6pt}%
     \begin{tabular}{|L{#3}|}
       \hline
-      \rowcolor{#4}\multicolumn{1}{|c|}{\bfseries #5}\\
+      \rowcolor{#4}\multicolumn{1}{|c|}{\textcolor{white}{\bfseries #5}}\\
       \hline
-      #6\\
+      \rowcolor{white} #6\\
       \hline
-      #7\\
+      \rowcolor{white} #7\\
       \hline
     \end{tabular}%
   };%
@@ -95,7 +86,7 @@
 \title{Documentación Técnica: Actividad 3} 
 \fancyhead[C]{}
 \hrule \medskip 
-\begin{minipage}{0.295\textwidth} 
+\begin{minipage}{0.4\textwidth} 
 \raggedright
 UNAL\\ 
 \footnotesize 
@@ -105,11 +96,11 @@ Cristian
 \begin{minipage}{0.4\textwidth} 
 \centering 
 \large 
-Actividad 3\\ 
+\textbf{Actividad 3}\\ 
 \normalsize 
 Programación Orientada a Objetos (3007744)\\ 
 \end{minipage}
-\begin{minipage}{0.295\textwidth} 
+\begin{minipage}{0.18\textwidth} 
 \raggedleft
 \today\\ 
 \footnotesize 
@@ -132,56 +123,58 @@ Para esta primera parte armamos una ventana que pide cinco notas. Después de in
  \item Nos aseguramos de que no se pueda calcular nada si dejaron algún espacio en blanco.
 \end{itemize}
 
-\bigskip
-
 \subsection{Así se ve la interfaz}
 Aquí puse unas capturas de cómo funciona el programa paso a paso:
 
 \begin{enumerate}
-    \item \textbf{Inicio:} Primero se abre la ventana vacía esperando las 5 notas.
-    \begin{figure}[H]
+    \item \textbf{Inicio y Cálculo Correcto:} Primero se abre la ventana vacía esperando las 5 notas. Luego de darle a calcular con buenos datos, muestra los resultados abajo.
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/1}
-        \caption{Ventana inicial esperando datos.}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/1}
+            \caption{Ventana inicial esperando datos.}
+        \end{minipage}\hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/2}
+            \caption{Resultados mostrados.}
+        \end{minipage}
     \end{figure}
 
-    \item \textbf{Cálculo correcto:} Luego de darle a calcular con buenos datos, muestra los resultados abajo en distintos colores.
-    \begin{figure}[H]
+    \item \textbf{Avisos y Errores:} Si falta rellenar algo, sale un aviso. Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con un cuadro rojo.
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/2}
-        \caption{Resultados mostrados en pantalla.}
-    \end{figure}
-
-    \item \textbf{Aviso por datos faltantes:} Si falta rellenar algo, sale este aviso para que el usuario complete todo.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/3}
-        \caption{Mensaje de advertencia por campos vacíos.}
-    \end{figure}
-
-    \item \textbf{Aviso por texto inválido:} Y si metes texto raro o letras, el programa no se rompe, solo te avisa del error con este cuadro.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/4}
-        \caption{Error de formato de número.}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/3}
+            \caption{Aviso por campos vacíos.}
+        \end{minipage}\hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{imagenes/4}
+            \caption{Error de formato numérico.}
+        \end{minipage}
     \end{figure}
 \end{enumerate}
 
 \subsection{Diagrama de Clases (UML)}
 Se complementó la información del diagrama para reflejar detalladamente la estructura de la interfaz y la lógica de negocio.
 
+\begin{figure}[htbp] 
 \begin{center}
+\resizebox{0.85\textwidth}{!}{%
 \begin{tikzpicture}[
   font=\sffamily,
-  inheritance/.style={draw=inheritColor, line width=0.8pt, -{Triangle[open, length=6pt, width=8pt]}},
-  association/.style={draw=assocColor, line width=0.65pt, -{Latex[length=4pt, width=5pt]}},
-  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=1.5pt},
-  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
+  inheritance/.style={draw=inheritColor, line width=1pt, -{Triangle[open, length=8pt, width=10pt]}},
+  association/.style={draw=assocColor, line width=0.8pt, -{Latex[length=6pt, width=7pt]}},
+  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=2pt, rounded corners=2pt, text=assocColor},
+  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt, text=assocColor}
 ]
 
-\umlclass{Principal}{(0,0)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
+\umlclass{Principal}{(0,0)}{3.0cm}{headerBlue}{Principal}{\strut}{+main(String[] args)\$}
 
-\umlclass{VentanaPrincipal}{(0,-6.5)}{5.5cm}{umlHeader}{VentanaPrincipal}{%
+\umlclass{VentanaPrincipal}{(0,-6.5)}{5.5cm}{headerBlue}{VentanaPrincipal}{%
 -contenedor: Container\\
 -nota1: JLabel\\
 -nota2: JLabel\\
@@ -203,7 +196,7 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 -inicio()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{Notas}{(0,-15.5)}{4.8cm}{umlHeader2}{Notas}{%
+\umlclass{Notas}{(0,-15.5)}{4.8cm}{headerGreen}{Notas}{%
 \textasciitilde{}listaNotas: double[]}{%
 +Notas()\\
 \textasciitilde{}calcularPromedio(): double\\
@@ -213,18 +206,19 @@ Se complementó la información del diagrama para reflejar detalladamente la est
 
 \begin{scope}[on background layer]
   \node[
-    draw=umlBorder,
-    rounded corners=5pt,
-    thick,
-    fill=namespaceFill,
-    inner xsep=18pt,
-    inner ysep=20pt,
+    draw=headerBlue!50,
+    dashed,
+    rounded corners=8pt,
+    very thick,
+    fill=headerBlue!5,
+    inner xsep=25pt,
+    inner ysep=25pt,
     fit=(Principal) (VentanaPrincipal) (Notas)
   ] (namespace) {};
   \node[
     anchor=south west,
-    text=umlBorder,
-    font=\bfseries\sffamily\small
+    text=headerBlue,
+    font=\bfseries\sffamily
   ] at (namespace.north west) {Paquete: Notas};
 \end{scope}
 
@@ -234,47 +228,39 @@ Se complementó la información del diagrama para reflejar detalladamente la est
   node[multiplicity, near end, left] {1};
 
 \draw[association] (VentanaPrincipal.south) -- (Notas.north)
-  node[label, midway, right] {Crea instancia para cálculos}
+  node[label, midway, right] {Instancia para cálculos}
   node[multiplicity, near start, left] {1}
   node[multiplicity, near end, left] {1};
 
 \end{tikzpicture}
+}
 \end{center}
+\end{figure}
 
 \subsection{Cómo funciona por detrás}
 \begin{itemize}
-    \item \textbf{Cálculo:} Cuando metes las notas y le das a calcular, el código en el \textit{actionPerformed} lee los textos, los convierte a números (\textit{Double.parseDouble}) y llama a los métodos de la clase Notas para hacer la matemática.
+    \item \textbf{Cálculo:} Cuando metes las notas y le das a calcular, el código lee los textos, los convierte a números y llama a la clase Notas para hacer las matemáticas.
     \item \textbf{Reinicio:} Con el botón Limpiar se borran todos los campos de texto para poder hacer otro cálculo rápido.
     \item \textbf{Protección:} Le pusimos un bloque \textit{try-catch} para atrapar los \textit{NumberFormatException} y evitar que la app se caiga.
 \end{itemize}
 
-\subsection{Repositorio}
-Código disponible en: \url{https://github.com/cioranemil/poo-trabajo}
-\bigskip
-
-%------------------------------------------------
-
 
 \section{Parte 2: Cálculo de Figuras Geométricas}
-En esta segunda parte hicimos un programa para sacar el volumen y la superficie de tres figuras tridimensionales: Cilindro, Esfera y Pirámide.
-
-Para esto usamos la POO y la herencia, donde todas las figuras concretas heredan sus datos principales de una superclase genérica.
-
-\bigskip
+En esta segunda parte hicimos un programa para sacar el volumen y la superficie de tres figuras tridimensionales: Cilindro, Esfera y Pirámide. Utilizamos herencia, donde todas las figuras concretas heredan sus datos principales de una superclase genérica.
 
 \subsection{Vistas de la aplicación}
 La aplicación está dividida por pequeñas ventanas para cada figura.
 
 \begin{enumerate}
     \item \textbf{Menú principal de figuras:} Al principio sale este menú para escoger qué figura quieres calcular.
-    \begin{figure}[H]
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/5}
+        \includegraphics[width=0.45\textwidth]{imagenes/5}
         \caption{Ventana inicial de selección.}
     \end{figure}
 
-    \item \textbf{Ventanas de cada figura:} Al abrirse, cada una pide los datos que necesita específicamente para su fórmula (por ejemplo, la esfera solo pide el radio).
-    \begin{figure}[H]
+    \item \textbf{Ventanas de cada figura:} Al abrirse, cada una pide los datos que necesita específicamente para su fórmula.
+    \begin{figure}[htbp]
         \centering
         \begin{minipage}{0.31\textwidth}
             \centering
@@ -294,9 +280,9 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
     \end{figure}
 
     \item \textbf{Prevención de errores:} Igual que en el ejercicio anterior, controlamos que si pones letras en vez de números, el programa te avise.
-    \begin{figure}[H]
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=0.6\textwidth]{imagenes/9}
+        \includegraphics[width=0.45\textwidth]{imagenes/9}
         \caption{Aviso de error en el formato.}
     \end{figure}
 \end{enumerate}
@@ -304,26 +290,27 @@ La aplicación está dividida por pequeñas ventanas para cada figura.
 \subsection{Diagrama de Clases (UML)}
 Se agregó información de las clases internas (\textit{PanelGrafico}) usadas para dibujar los sólidos mediante la librería Graphics2D.
 
+\begin{figure}[htbp]
 \begin{center}
 \resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
   font=\sffamily,
-  inheritance/.style={draw=inheritColor, line width=0.8pt, -{Triangle[open, length=6pt, width=8pt]}},
-  association/.style={draw=assocColor, line width=0.65pt, -{Latex[length=4pt, width=5pt]}},
-  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=1.5pt},
-  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt}
+  inheritance/.style={draw=inheritColor, line width=1.2pt, -{Triangle[open, length=10pt, width=12pt]}},
+  association/.style={draw=assocColor, line width=0.8pt, -{Latex[length=6pt, width=7pt]}},
+  label/.style={font=\scriptsize\sffamily, fill=white, inner sep=2pt, rounded corners=2pt, text=assocColor},
+  multiplicity/.style={font=\scriptsize\sffamily, fill=white, inner sep=1pt, text=assocColor}
 ]
 
-\umlclass{Principal}{(0,1.5)}{3.0cm}{umlHeader}{Principal}{\strut}{+main(String[] args)\$}
+\umlclass{Principal}{(0,1.5)}{3.0cm}{headerBlue}{Principal}{\strut}{+main(String[] args)\$}
 
-\umlclass{VentanaPrincipal}{(0,-2.5)}{4.7cm}{umlHeader}{VentanaPrincipal}{%
+\umlclass{VentanaPrincipal}{(0,-2.5)}{4.7cm}{headerBlue}{VentanaPrincipal}{%
 -btnCilindro: JButton\\
 -btnEsfera: JButton\\
 -btnPiramide: JButton}{%
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-7.5,-9.0)}{4.8cm}{umlHeader}{VentanaCilindro}{%
+\umlclass{VentanaCilindro}{(-7.5,-9.0)}{4.8cm}{headerBlue}{VentanaCilindro}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -altura: JLabel\\
@@ -336,11 +323,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaCilindro()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelCil}{(-7.5,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCil}{(-7.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaEsfera}{(0.0,-9.0)}{4.5cm}{umlHeader}{VentanaEsfera}{%
+\umlclass{VentanaEsfera}{(0.0,-9.0)}{4.5cm}{headerBlue}{VentanaEsfera}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -volumen: JLabel\\
@@ -351,11 +338,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaEsfera()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelEsf}{(0.0,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelEsf}{(0.0,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaPiramide}{(7.5,-9.0)}{4.8cm}{umlHeader}{VentanaPiramide}{%
+\umlclass{VentanaPiramide}{(7.5,-9.0)}{4.8cm}{headerBlue}{VentanaPiramide}{%
 -contenedor: Container\\
 -base: JLabel\\
 -altura: JLabel\\
@@ -370,24 +357,24 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPiramide()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelPir}{(7.5,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPir}{(7.5,-15.5)}{3.8cm}{headerBlue}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{Cilindro}{(-7.5,-19.5)}{4.0cm}{umlHeader2}{Cilindro}{%
+\umlclass{Cilindro}{(-7.5,-21.5)}{4.0cm}{headerGreen}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
 +Cilindro(double r, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Esfera}{(0.0,-19.5)}{3.8cm}{umlHeader2}{Esfera}{%
+\umlclass{Esfera}{(0.0,-21.5)}{3.8cm}{headerGreen}{Esfera}{%
 -radio: double}{%
 +Esfera(double r)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Piramide}{(7.5,-19.5)}{4.5cm}{umlHeader2}{Piramide}{%
+\umlclass{Piramide}{(7.5,-21.5)}{4.5cm}{headerGreen}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
@@ -395,13 +382,31 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{FiguraGeometrica}{(0.0,-25.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
+\umlclass{FiguraGeometrica}{(0.0,-27.5)}{4.7cm}{headerGreen}{FiguraGeometrica}{%
 -volumen: double\\
 -superficie: double}{%
 +setVolumen(double)\\
 +setSuperficie(double)\\
 +getVolumen(): double\\
 +getSuperficie(): double}
+
+\begin{scope}[on background layer]
+  \node[
+    draw=headerGreen!50,
+    dashed,
+    rounded corners=8pt,
+    very thick,
+    fill=headerGreen!5,
+    inner xsep=15pt,
+    inner ysep=15pt,
+    fit=(Cilindro) (Esfera) (Piramide) (FiguraGeometrica)
+  ] (namespace2) {};
+  \node[
+    anchor=south west,
+    text=headerGreen,
+    font=\bfseries\sffamily
+  ] at (namespace2.north west) {Lógica de Negocio};
+\end{scope}
 
 \draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Inicia};
 \draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north);
@@ -419,13 +424,14 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \end{tikzpicture}%
 }
 \end{center}
+\end{figure}
 
 \section{Cómo probar el proyecto y Menú Principal}
 Para que todo sea más fácil de revisar y no tener los archivos sueltos, creamos una ventana extra de \textbf{Menú Principal} (\textit{MenuActividad3}). Este menú agrupa todo y te deja saltar entre el sistema de Notas y el de las Figuras sin salir del programa.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{imagenes/10}
+    \includegraphics[width=0.45\textwidth]{imagenes/10}
     \caption{El menú que unifica toda la actividad 3.}
 \end{figure}
 
