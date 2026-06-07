@@ -323,7 +323,7 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPrincipal()\\
 +actionPerformed(ActionEvent e)}
 
-\umlclass{VentanaCilindro}{(-7.0,-8.5)}{4.8cm}{umlHeader}{VentanaCilindro}{%
+\umlclass{VentanaCilindro}{(-7.5,-9.0)}{4.8cm}{umlHeader}{VentanaCilindro}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -altura: JLabel\\
@@ -336,11 +336,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaCilindro()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelCil}{(-7.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelCil}{(-7.5,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaCilindro.south) -- (PanelCil.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaEsfera}{(0.0,-8.5)}{4.5cm}{umlHeader}{VentanaEsfera}{%
+\umlclass{VentanaEsfera}{(0.0,-9.0)}{4.5cm}{umlHeader}{VentanaEsfera}{%
 -contenedor: Container\\
 -radio: JLabel\\
 -volumen: JLabel\\
@@ -351,11 +351,11 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaEsfera()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelEsf}{(0.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelEsf}{(0.0,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaEsfera.south) -- (PanelEsf.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{VentanaPiramide}{(7.0,-8.5)}{4.8cm}{umlHeader}{VentanaPiramide}{%
+\umlclass{VentanaPiramide}{(7.5,-9.0)}{4.8cm}{umlHeader}{VentanaPiramide}{%
 -contenedor: Container\\
 -base: JLabel\\
 -altura: JLabel\\
@@ -370,38 +370,38 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 +VentanaPiramide()\\
 +actionPerformed(ActionEvent evento)}
 
-\umlclass{PanelPir}{(7.0,-14.0)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
+\umlclass{PanelPir}{(7.5,-14.5)}{3.8cm}{umlHeader}{PanelGrafico}{}{+paintComponent(Graphics g)}
 \draw[association] (VentanaPiramide.south) -- (PanelPir.north) node[label, midway, right] {Inner Class};
 
 
-\umlclass{FiguraGeometrica}{(0.0,-18.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
--volumen: double\\
--superficie: double}{%
-+setVolumen(double)\\
-+setSuperficie(double)\\
-+getVolumen(): double\\
-+getSuperficie(): double}
-
-\umlclass{Cilindro}{(-7.0,-23.5)}{4.0cm}{umlHeader2}{Cilindro}{%
+\umlclass{Cilindro}{(-7.5,-19.5)}{4.0cm}{umlHeader2}{Cilindro}{%
 -radio: double\\
 -altura: double}{%
 +Cilindro(double r, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Esfera}{(0.0,-23.5)}{3.8cm}{umlHeader2}{Esfera}{%
+\umlclass{Esfera}{(0.0,-19.5)}{3.8cm}{umlHeader2}{Esfera}{%
 -radio: double}{%
 +Esfera(double r)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
 
-\umlclass{Piramide}{(7.0,-23.5)}{4.5cm}{umlHeader2}{Piramide}{%
+\umlclass{Piramide}{(7.5,-19.5)}{4.5cm}{umlHeader2}{Piramide}{%
 -base: double\\
 -altura: double\\
 -apotema: double}{%
 +Piramide(double b, double h, double a)\\
 +calcularVolumen(): double\\
 +calcularSuperficie(): double}
+
+\umlclass{FiguraGeometrica}{(0.0,-25.0)}{4.7cm}{umlHeader2}{FiguraGeometrica}{%
+-volumen: double\\
+-superficie: double}{%
++setVolumen(double)\\
++setSuperficie(double)\\
++getVolumen(): double\\
++getSuperficie(): double}
 
 \draw[association] (Principal.south) -- (VentanaPrincipal.north) node[label, midway, right] {Inicia};
 \draw[association] (VentanaPrincipal.south) -- (VentanaEsfera.north);
@@ -412,9 +412,9 @@ Se agregó información de las clases internas (\textit{PanelGrafico}) usadas pa
 \draw[association] (PanelEsf.south) -- (Esfera.north);
 \draw[association] (PanelPir.south) -- (Piramide.north);
 
-\draw[inheritance] (Cilindro.east) -- ++(1.5,0) |- (FiguraGeometrica.west);
-\draw[inheritance] (Esfera.north) -- (FiguraGeometrica.south);
-\draw[inheritance] (Piramide.west) -- ++(-1.5,0) |- (FiguraGeometrica.east);
+\draw[inheritance] (Cilindro.south) -- ++(0,-1.5) -| (FiguraGeometrica.north);
+\draw[inheritance] (Esfera.south) -- (FiguraGeometrica.north);
+\draw[inheritance] (Piramide.south) -- ++(0,-1.5) -| (FiguraGeometrica.north);
 
 \end{tikzpicture}%
 }
