@@ -142,24 +142,28 @@ A continuación, se documenta la interfaz de usuario para el cálculo de notas:
     \item \textbf{Estado Inicial:} Interfaz dispuesta para recibir las cinco notas del alumno en formato decimal.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{1}
         \caption{Vista inicial sin datos ingresados.}
     \end{figure}
 
     \item \textbf{Procesamiento Exitoso:} Resultados estadísticos generados y mostrados tras una validación correcta.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{2}
         \caption{Cálculo de estadísticas con datos correctos.}
     \end{figure}
 
     \item \textbf{Excepción por Campos Vacíos:} Advertencia modal que frena la operación si faltan calificaciones.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{3}
         \caption{Diálogo modal advirtiendo la falta de información.}
     \end{figure}
 
     \item \textbf{Excepción por Formato Inválido:} Advertencia cuando el usuario digita texto o caracteres que no corresponden a un número decimal válido.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{4}
         \caption{Diálogo modal de error de conversión de formato (\textit{NumberFormatException}).}
     \end{figure}
 \end{enumerate}
@@ -257,6 +261,7 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
     \item \textbf{Menú de Selección:} Panel centralizado con opciones dedicadas a cada sólido.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{5}
         \caption{Ventana enrutadora principal para los tres sólidos.}
     \end{figure}
 
@@ -265,14 +270,17 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
         \centering
         \begin{minipage}{0.31\textwidth}
             \centering
+            \includegraphics[width=\linewidth]{6}
             \caption{Vista del Cilindro (Radio y Altura).}
         \end{minipage}\hfill
         \begin{minipage}{0.31\textwidth}
             \centering
+            \includegraphics[width=\linewidth]{7}
             \caption{Vista de la Esfera (Único parámetro: Radio).}
         \end{minipage}\hfill
         \begin{minipage}{0.31\textwidth}
             \centering
+            \includegraphics[width=\linewidth]{8}
             \caption{Vista de la Pirámide (Base, Altura y Apotema).}
         \end{minipage}
     \end{figure}
@@ -280,6 +288,7 @@ La aplicación dispone de una arquitectura en ventanas modales (sub-menús).
     \item \textbf{Manejo de Errores:} Protección estricta contra entradas inválidas mediante validación de tipos decimales.
     \begin{figure}[H]
         \centering
+        \includegraphics[width=0.6\textwidth]{9}
         \caption{Alerta modal de ingreso de datos incorrecto.}
     \end{figure}
 \end{enumerate}
